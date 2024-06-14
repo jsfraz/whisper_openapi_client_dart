@@ -58,7 +58,7 @@ All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AuthenticationApi* | [**registerUser**](doc//AuthenticationApi.md#registeruser) | **POST** /api/auth/register | Creates new account and sends verification mail.
+*AuthenticationApi* | [**registerUser**](doc//AuthenticationApi.md#registeruser) | **POST** /api/auth/register | Creates new account.
 *AuthenticationApi* | [**verifyUser**](doc//AuthenticationApi.md#verifyuser) | **PATCH** /api/auth/verify | Verifies account.
 
 

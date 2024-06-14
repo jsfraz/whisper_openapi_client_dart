@@ -9,14 +9,14 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**registerUser**](AuthenticationApi.md#registeruser) | **POST** /api/auth/register | Creates new account and sends verification mail.
+[**registerUser**](AuthenticationApi.md#registeruser) | **POST** /api/auth/register | Creates new account.
 [**verifyUser**](AuthenticationApi.md#verifyuser) | **PATCH** /api/auth/verify | Verifies account.
 
 
 # **registerUser**
 > registerUser(registerUserInput)
 
-Creates new account and sends verification mail.
+Creates new account.
 
 ### Example
 ```dart

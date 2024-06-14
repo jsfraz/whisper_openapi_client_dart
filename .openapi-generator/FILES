@@ -1,5 +1,4 @@
 .gitignore
-.openapi-generator-ignore
 .travis.yml
 README.md
 analysis_options.yaml
@@ -20,6 +19,3 @@ lib/auth/oauth.dart
 lib/model/register_user_input.dart
 lib/model/verify_user_input.dart
 pubspec.yaml
-test/authentication_api_test.dart
-test/register_user_input_test.dart
-test/verify_user_input_test.dart

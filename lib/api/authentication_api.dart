@@ -16,7 +16,7 @@ class AuthenticationApi {
 
   final ApiClient apiClient;
 
-  /// Creates new account and sends verification mail.
+  /// Creates new account.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -48,7 +48,7 @@ class AuthenticationApi {
     );
   }
 
-  /// Creates new account and sends verification mail.
+  /// Creates new account.
   ///
   /// Parameters:
   ///
