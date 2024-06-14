@@ -9,9 +9,51 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**loginUser**](AuthenticationApi.md#loginuser) | **POST** /api/auth/login | User login.
 [**registerUser**](AuthenticationApi.md#registeruser) | **POST** /api/auth/register | Creates new account.
 [**verifyUser**](AuthenticationApi.md#verifyuser) | **PATCH** /api/auth/verify | Verifies account.
 
+
+# **loginUser**
+> ModelsAuthResponse loginUser(loginUserInput)
+
+User login.
+
+### Example
+```dart
+import 'package:whisper_openapi_client/api.dart';
+
+final api_instance = AuthenticationApi();
+final loginUserInput = LoginUserInput(); // LoginUserInput | 
+
+try {
+    final result = api_instance.loginUser(loginUserInput);
+    print(result);
+} catch (e) {
+    print('Exception when calling AuthenticationApi->loginUser: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **loginUserInput** | [**LoginUserInput**](LoginUserInput.md)|  | [optional] 
+
+### Return type
+
+[**ModelsAuthResponse**](ModelsAuthResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **registerUser**
 > registerUser(registerUserInput)

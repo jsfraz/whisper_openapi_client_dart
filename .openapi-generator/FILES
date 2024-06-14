@@ -3,6 +3,9 @@
 README.md
 analysis_options.yaml
 doc/AuthenticationApi.md
+doc/LoginUserInput.md
+doc/ModelsAuthResponse.md
+doc/ModelsUser.md
 doc/RegisterUserInput.md
 doc/VerifyUserInput.md
 git_push.sh
@@ -16,6 +19,12 @@ lib/auth/authentication.dart
 lib/auth/http_basic_auth.dart
 lib/auth/http_bearer_auth.dart
 lib/auth/oauth.dart
+lib/model/login_user_input.dart
+lib/model/models_auth_response.dart
+lib/model/models_user.dart
 lib/model/register_user_input.dart
 lib/model/verify_user_input.dart
 pubspec.yaml
+test/login_user_input_test.dart
+test/models_auth_response_test.dart
+test/models_user_test.dart

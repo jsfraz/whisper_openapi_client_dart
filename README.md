@@ -42,12 +42,13 @@ import 'package:whisper_openapi_client/api.dart';
 
 
 final api_instance = AuthenticationApi();
-final registerUserInput = RegisterUserInput(); // RegisterUserInput | 
+final loginUserInput = LoginUserInput(); // LoginUserInput | 
 
 try {
-    api_instance.registerUser(registerUserInput);
+    final result = api_instance.loginUser(loginUserInput);
+    print(result);
 } catch (e) {
-    print('Exception when calling AuthenticationApi->registerUser: $e\n');
+    print('Exception when calling AuthenticationApi->loginUser: $e\n');
 }
 
 ```
@@ -58,12 +59,16 @@ All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*AuthenticationApi* | [**loginUser**](doc//AuthenticationApi.md#loginuser) | **POST** /api/auth/login | User login.
 *AuthenticationApi* | [**registerUser**](doc//AuthenticationApi.md#registeruser) | **POST** /api/auth/register | Creates new account.
 *AuthenticationApi* | [**verifyUser**](doc//AuthenticationApi.md#verifyuser) | **PATCH** /api/auth/verify | Verifies account.
 
 
 ## Documentation For Models
 
+ - [LoginUserInput](doc//LoginUserInput.md)
+ - [ModelsAuthResponse](doc//ModelsAuthResponse.md)
+ - [ModelsUser](doc//ModelsUser.md)
  - [RegisterUserInput](doc//RegisterUserInput.md)
  - [VerifyUserInput](doc//VerifyUserInput.md)
 

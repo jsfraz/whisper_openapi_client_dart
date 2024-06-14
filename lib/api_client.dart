@@ -182,6 +182,12 @@ class ApiClient {
           return valueString == 'true' || valueString == '1';
         case 'DateTime':
           return value is DateTime ? value : DateTime.tryParse(value);
+        case 'LoginUserInput':
+          return LoginUserInput.fromJson(value);
+        case 'ModelsAuthResponse':
+          return ModelsAuthResponse.fromJson(value);
+        case 'ModelsUser':
+          return ModelsUser.fromJson(value);
         case 'RegisterUserInput':
           return RegisterUserInput.fromJson(value);
         case 'VerifyUserInput':
