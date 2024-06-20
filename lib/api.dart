@@ -29,9 +29,11 @@ part 'auth/http_basic_auth.dart';
 part 'auth/http_bearer_auth.dart';
 
 part 'api/authentication_api.dart';
+part 'api/users_api.dart';
 
 part 'model/login_user_input.dart';
 part 'model/models_auth_response.dart';
+part 'model/models_refresh_response.dart';
 part 'model/models_user.dart';
 part 'model/register_user_input.dart';
 part 'model/verify_user_input.dart';

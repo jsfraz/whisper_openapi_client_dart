@@ -60,14 +60,17 @@ All URIs are relative to *http://localhost*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *AuthenticationApi* | [**loginUser**](doc//AuthenticationApi.md#loginuser) | **POST** /api/auth/login | User login.
+*AuthenticationApi* | [**refreshUserAccessToken**](doc//AuthenticationApi.md#refreshuseraccesstoken) | **GET** /api/auth/refresh | Refresh access token.
 *AuthenticationApi* | [**registerUser**](doc//AuthenticationApi.md#registeruser) | **POST** /api/auth/register | Creates new account.
 *AuthenticationApi* | [**verifyUser**](doc//AuthenticationApi.md#verifyuser) | **PATCH** /api/auth/verify | Verifies account.
+*UsersApi* | [**whoAmI**](doc//UsersApi.md#whoami) | **GET** /api/user/whoAmI | Get current user.
 
 
 ## Documentation For Models
 
  - [LoginUserInput](doc//LoginUserInput.md)
  - [ModelsAuthResponse](doc//ModelsAuthResponse.md)
+ - [ModelsRefreshResponse](doc//ModelsRefreshResponse.md)
  - [ModelsUser](doc//ModelsUser.md)
  - [RegisterUserInput](doc//RegisterUserInput.md)
  - [VerifyUserInput](doc//VerifyUserInput.md)

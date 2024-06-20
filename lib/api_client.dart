@@ -186,6 +186,8 @@ class ApiClient {
           return LoginUserInput.fromJson(value);
         case 'ModelsAuthResponse':
           return ModelsAuthResponse.fromJson(value);
+        case 'ModelsRefreshResponse':
+          return ModelsRefreshResponse.fromJson(value);
         case 'ModelsUser':
           return ModelsUser.fromJson(value);
         case 'RegisterUserInput':

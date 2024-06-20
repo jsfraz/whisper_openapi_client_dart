@@ -10,6 +10,7 @@ All URIs are relative to *http://localhost*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**loginUser**](AuthenticationApi.md#loginuser) | **POST** /api/auth/login | User login.
+[**refreshUserAccessToken**](AuthenticationApi.md#refreshuseraccesstoken) | **GET** /api/auth/refresh | Refresh access token.
 [**registerUser**](AuthenticationApi.md#registeruser) | **POST** /api/auth/register | Creates new account.
 [**verifyUser**](AuthenticationApi.md#verifyuser) | **PATCH** /api/auth/verify | Verifies account.
 
@@ -51,6 +52,47 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **refreshUserAccessToken**
+> ModelsRefreshResponse refreshUserAccessToken(refreshToken)
+
+Refresh access token.
+
+### Example
+```dart
+import 'package:whisper_openapi_client/api.dart';
+
+final api_instance = AuthenticationApi();
+final refreshToken = JWT_REFRESH_TOKEN; // String | 
+
+try {
+    final result = api_instance.refreshUserAccessToken(refreshToken);
+    print(result);
+} catch (e) {
+    print('Exception when calling AuthenticationApi->refreshUserAccessToken: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **refreshToken** | **String**|  | 
+
+### Return type
+
+[**ModelsRefreshResponse**](ModelsRefreshResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
