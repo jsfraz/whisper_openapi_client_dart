@@ -11,7 +11,7 @@
 part of openapi.api;
 
 class ApiClient {
-  ApiClient({this.basePath = 'http://localhost', this.authentication,});
+  ApiClient({this.basePath = 'http://localhost:8080', this.authentication,});
 
   final String basePath;
   final Authentication? authentication;
@@ -182,18 +182,8 @@ class ApiClient {
           return valueString == 'true' || valueString == '1';
         case 'DateTime':
           return value is DateTime ? value : DateTime.tryParse(value);
-        case 'LoginUserInput':
-          return LoginUserInput.fromJson(value);
-        case 'ModelsAuthResponse':
-          return ModelsAuthResponse.fromJson(value);
-        case 'ModelsRefreshResponse':
-          return ModelsRefreshResponse.fromJson(value);
-        case 'ModelsUser':
-          return ModelsUser.fromJson(value);
-        case 'RegisterUserInput':
-          return RegisterUserInput.fromJson(value);
-        case 'VerifyUserInput':
-          return VerifyUserInput.fromJson(value);
+        case 'CreateUserInput':
+          return CreateUserInput.fromJson(value);
         default:
           dynamic match;
           if (value is List && (match = _regList.firstMatch(targetType)?.group(1)) != null) {

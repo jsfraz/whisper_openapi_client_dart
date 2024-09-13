@@ -17,10 +17,12 @@ void main() {
   // final instance = UsersApi();
 
   group('tests for UsersApi', () {
-    // Get current user.
+    // Create user
     //
-    //Future<ModelsUser> whoAmI() async
-    test('test whoAmI', () async {
+    // **Public key _MUST_ be passed without the newline characters.**
+    //
+    //Future createUser({ CreateUserInput createUserInput }) async
+    test('test createUser', () async {
       // TODO
     });
 

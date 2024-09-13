@@ -11,13 +11,23 @@
 import 'package:whisper_openapi_client/api.dart';
 import 'package:test/test.dart';
 
-// tests for VerifyUserInput
+// tests for CreateUserInput
 void main() {
-  // final instance = VerifyUserInput();
+  // final instance = CreateUserInput();
 
-  group('test VerifyUserInput', () {
-    // String code
-    test('to test the property `code`', () async {
+  group('test CreateUserInput', () {
+    // String inviteCode
+    test('to test the property `inviteCode`', () async {
+      // TODO
+    });
+
+    // String publicKey
+    test('to test the property `publicKey`', () async {
+      // TODO
+    });
+
+    // String username
+    test('to test the property `username`', () async {
       // TODO
     });
 
