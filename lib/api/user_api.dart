@@ -11,8 +11,8 @@
 part of openapi.api;
 
 
-class UsersApi {
-  UsersApi([ApiClient? apiClient]) : apiClient = apiClient ?? defaultApiClient;
+class UserApi {
+  UserApi([ApiClient? apiClient]) : apiClient = apiClient ?? defaultApiClient;
 
   final ApiClient apiClient;
 

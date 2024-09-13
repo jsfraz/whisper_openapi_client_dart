@@ -12,11 +12,11 @@ import 'package:whisper_openapi_client/api.dart';
 import 'package:test/test.dart';
 
 
-/// tests for UsersApi
+/// tests for UserApi
 void main() {
-  // final instance = UsersApi();
+  // final instance = UserApi();
 
-  group('tests for UsersApi', () {
+  group('tests for UserApi', () {
     // Create user
     //
     // **Public key _MUST_ be passed without the newline characters.**

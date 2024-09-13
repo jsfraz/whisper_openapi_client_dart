@@ -3,10 +3,10 @@
 README.md
 analysis_options.yaml
 doc/CreateUserInput.md
-doc/UsersApi.md
+doc/UserApi.md
 git_push.sh
 lib/api.dart
-lib/api/users_api.dart
+lib/api/user_api.dart
 lib/api_client.dart
 lib/api_exception.dart
 lib/api_helper.dart
@@ -18,4 +18,4 @@ lib/auth/oauth.dart
 lib/model/create_user_input.dart
 pubspec.yaml
 test/create_user_input_test.dart
-test/users_api_test.dart
+test/user_api_test.dart
