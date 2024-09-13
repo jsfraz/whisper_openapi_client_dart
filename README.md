@@ -42,13 +42,13 @@ Please follow the [installation procedure](#installation--usage) and then run th
 import 'package:whisper_openapi_client/api.dart';
 
 
-final api_instance = UsersApi();
+final api_instance = UserApi();
 final createUserInput = CreateUserInput(); // CreateUserInput | 
 
 try {
     api_instance.createUser(createUserInput);
 } catch (e) {
-    print('Exception when calling UsersApi->createUser: $e\n');
+    print('Exception when calling UserApi->createUser: $e\n');
 }
 
 ```
@@ -59,7 +59,7 @@ All URIs are relative to *http://localhost:8080*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*UsersApi* | [**createUser**](doc//UsersApi.md#createuser) | **POST** /api/user | Create user
+*UserApi* | [**createUser**](doc//UserApi.md#createuser) | **POST** /api/user | Create user
 
 
 ## Documentation For Models
