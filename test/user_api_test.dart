@@ -19,9 +19,7 @@ void main() {
   group('tests for UserApi', () {
     // Create user
     //
-    // **Public key _MUST_ be passed without the newline characters.**
-    //
-    //Future createUser({ CreateUserInput createUserInput }) async
+    //Future<ModelsUser> createUser({ CreateUserInput createUserInput }) async
     test('test createUser', () async {
       // TODO
     });

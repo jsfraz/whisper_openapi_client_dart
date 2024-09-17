@@ -13,11 +13,9 @@ Method | HTTP request | Description
 
 
 # **createUser**
-> createUser(createUserInput)
+> ModelsUser createUser(createUserInput)
 
 Create user
-
-**Public key _MUST_ be passed without the newline characters.**
 
 ### Example
 ```dart
@@ -27,7 +25,8 @@ final api_instance = UserApi();
 final createUserInput = CreateUserInput(); // CreateUserInput | 
 
 try {
-    api_instance.createUser(createUserInput);
+    final result = api_instance.createUser(createUserInput);
+    print(result);
 } catch (e) {
     print('Exception when calling UserApi->createUser: $e\n');
 }
@@ -41,7 +40,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**ModelsUser**](ModelsUser.md)
 
 ### Authorization
 

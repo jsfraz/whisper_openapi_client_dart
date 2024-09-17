@@ -184,6 +184,8 @@ class ApiClient {
           return value is DateTime ? value : DateTime.tryParse(value);
         case 'CreateUserInput':
           return CreateUserInput.fromJson(value);
+        case 'ModelsUser':
+          return ModelsUser.fromJson(value);
         default:
           dynamic match;
           if (value is List && (match = _regList.firstMatch(targetType)?.group(1)) != null) {

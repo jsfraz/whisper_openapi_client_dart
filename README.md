@@ -46,7 +46,8 @@ final api_instance = UserApi();
 final createUserInput = CreateUserInput(); // CreateUserInput | 
 
 try {
-    api_instance.createUser(createUserInput);
+    final result = api_instance.createUser(createUserInput);
+    print(result);
 } catch (e) {
     print('Exception when calling UserApi->createUser: $e\n');
 }
@@ -65,6 +66,7 @@ Class | Method | HTTP request | Description
 ## Documentation For Models
 
  - [CreateUserInput](doc//CreateUserInput.md)
+ - [ModelsUser](doc//ModelsUser.md)
 
 
 ## Documentation For Authorization
