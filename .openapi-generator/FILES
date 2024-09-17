@@ -3,6 +3,7 @@
 README.md
 analysis_options.yaml
 doc/CreateUserInput.md
+doc/ModelsUser.md
 doc/UserApi.md
 git_push.sh
 lib/api.dart
@@ -16,6 +17,8 @@ lib/auth/http_basic_auth.dart
 lib/auth/http_bearer_auth.dart
 lib/auth/oauth.dart
 lib/model/create_user_input.dart
+lib/model/models_user.dart
 pubspec.yaml
 test/create_user_input_test.dart
+test/models_user_test.dart
 test/user_api_test.dart

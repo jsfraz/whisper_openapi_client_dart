@@ -31,6 +31,7 @@ part 'auth/http_bearer_auth.dart';
 part 'api/user_api.dart';
 
 part 'model/create_user_input.dart';
+part 'model/models_user.dart';
 
 
 /// An [ApiClient] instance that uses the default values obtained from
