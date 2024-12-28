@@ -16,30 +16,32 @@ class UserApi {
 
   final ApiClient apiClient;
 
-  /// Create user
+  /// Delete users
   ///
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
   ///
-  /// * [CreateUserInput] createUserInput:
-  Future<Response> createUserWithHttpInfo({ CreateUserInput? createUserInput, }) async {
+  /// * [List<int>] ids (required):
+  Future<Response> deleteUsersWithHttpInfo(List<int> ids,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/user';
 
     // ignore: prefer_final_locals
-    Object? postBody = createUserInput;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const contentTypes = <String>['application/json'];
+      queryParams.addAll(_queryParams('multi', 'ids', ids));
+
+    const contentTypes = <String>[];
 
 
     return apiClient.invokeAPI(
       path,
-      'POST',
+      'DELETE',
       queryParams,
       postBody,
       headerParams,
@@ -48,13 +50,49 @@ class UserApi {
     );
   }
 
-  /// Create user
+  /// Delete users
   ///
   /// Parameters:
   ///
-  /// * [CreateUserInput] createUserInput:
-  Future<ModelsUser?> createUser({ CreateUserInput? createUserInput, }) async {
-    final response = await createUserWithHttpInfo( createUserInput: createUserInput, );
+  /// * [List<int>] ids (required):
+  Future<void> deleteUsers(List<int> ids,) async {
+    final response = await deleteUsersWithHttpInfo(ids,);
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+  }
+
+  /// Get all users except the user
+  ///
+  /// Note: This method returns the HTTP [Response].
+  Future<Response> getAllUsersWithHttpInfo() async {
+    // ignore: prefer_const_declarations
+    final path = r'/api/user/all';
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>[];
+
+
+    return apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Get all users except the user
+  Future<List<ModelsUser>?> getAllUsers() async {
+    final response = await getAllUsersWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -62,8 +100,11 @@ class UserApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'ModelsUser',) as ModelsUser;
-    
+      final responseBody = await _decodeBodyBytes(response);
+      return (await apiClient.deserializeAsync(responseBody, 'List<ModelsUser>') as List)
+        .cast<ModelsUser>()
+        .toList(growable: false);
+
     }
     return null;
   }
