@@ -28,6 +28,7 @@ part 'auth/oauth.dart';
 part 'auth/http_basic_auth.dart';
 part 'auth/http_bearer_auth.dart';
 
+part 'api/register_api.dart';
 part 'api/user_api.dart';
 
 part 'model/create_user_input.dart';

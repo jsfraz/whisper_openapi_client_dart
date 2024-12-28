@@ -9,26 +9,32 @@ All URIs are relative to *http://localhost:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createUser**](UserApi.md#createuser) | **POST** /api/user | Create user
+[**deleteUsers**](UserApi.md#deleteusers) | **DELETE** /api/user | Delete users
+[**getAllUsers**](UserApi.md#getallusers) | **GET** /api/user/all | Get all users except the user
 
 
-# **createUser**
-> ModelsUser createUser(createUserInput)
+# **deleteUsers**
+> deleteUsers(ids)
 
-Create user
+Delete users
 
 ### Example
 ```dart
 import 'package:whisper_openapi_client/api.dart';
+// TODO Configure HTTP Bearer authorization: bearerAuth
+// Case 1. Use String Token
+//defaultApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
+// Case 2. Use Function which generate token.
+// String yourTokenGeneratorFunction() { ... }
+//defaultApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
 final api_instance = UserApi();
-final createUserInput = CreateUserInput(); // CreateUserInput | 
+final ids = []; // List<int> | 
 
 try {
-    final result = api_instance.createUser(createUserInput);
-    print(result);
+    api_instance.deleteUsers(ids);
 } catch (e) {
-    print('Exception when calling UserApi->createUser: $e\n');
+    print('Exception when calling UserApi->deleteUsers: $e\n');
 }
 ```
 
@@ -36,19 +42,62 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **createUserInput** | [**CreateUserInput**](CreateUserInput.md)|  | [optional] 
+ **ids** | [**List<int>**](int.md)|  | [default to const []]
 
 ### Return type
 
-[**ModelsUser**](ModelsUser.md)
+void (empty response body)
 
 ### Authorization
 
-No authorization required
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getAllUsers**
+> List<ModelsUser> getAllUsers()
+
+Get all users except the user
+
+### Example
+```dart
+import 'package:whisper_openapi_client/api.dart';
+// TODO Configure HTTP Bearer authorization: bearerAuth
+// Case 1. Use String Token
+//defaultApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
+// Case 2. Use Function which generate token.
+// String yourTokenGeneratorFunction() { ... }
+//defaultApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
+
+final api_instance = UserApi();
+
+try {
+    final result = api_instance.getAllUsers();
+    print(result);
+} catch (e) {
+    print('Exception when calling UserApi->getAllUsers: $e\n');
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**List<ModelsUser>**](ModelsUser.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
