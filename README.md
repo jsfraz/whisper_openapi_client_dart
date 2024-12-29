@@ -42,14 +42,14 @@ Please follow the [installation procedure](#installation--usage) and then run th
 import 'package:whisper_openapi_client/api.dart';
 
 
-final api_instance = RegisterApi();
-final createUserInput = CreateUserInput(); // CreateUserInput | 
+final api_instance = AuthenticationApi();
+final authUserInput = AuthUserInput(); // AuthUserInput | 
 
 try {
-    final result = api_instance.createUser(createUserInput);
+    final result = api_instance.authUser(authUserInput);
     print(result);
 } catch (e) {
-    print('Exception when calling RegisterApi->createUser: $e\n');
+    print('Exception when calling AuthenticationApi->authUser: $e\n');
 }
 
 ```
@@ -60,14 +60,17 @@ All URIs are relative to *http://localhost:8080*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*RegisterApi* | [**createUser**](doc//RegisterApi.md#createuser) | **POST** /api/register | Register new user
+*AuthenticationApi* | [**authUser**](doc//AuthenticationApi.md#authuser) | **POST** /api/auth | User auth
+*AuthenticationApi* | [**createUser**](doc//AuthenticationApi.md#createuser) | **POST** /api/auth/register | Register new user
 *UserApi* | [**deleteUsers**](doc//UserApi.md#deleteusers) | **DELETE** /api/user | Delete users
 *UserApi* | [**getAllUsers**](doc//UserApi.md#getallusers) | **GET** /api/user/all | Get all users except the user
 
 
 ## Documentation For Models
 
+ - [AuthUserInput](doc//AuthUserInput.md)
  - [CreateUserInput](doc//CreateUserInput.md)
+ - [ModelsAuthResponse](doc//ModelsAuthResponse.md)
  - [ModelsUser](doc//ModelsUser.md)
 
 

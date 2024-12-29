@@ -11,18 +11,27 @@
 import 'package:whisper_openapi_client/api.dart';
 import 'package:test/test.dart';
 
-
-/// tests for RegisterApi
+// tests for AuthUserInput
 void main() {
-  // final instance = RegisterApi();
+  // final instance = AuthUserInput();
 
-  group('tests for RegisterApi', () {
-    // Register new user
-    //
-    //Future<ModelsUser> createUser({ CreateUserInput createUserInput }) async
-    test('test createUser', () async {
+  group('test AuthUserInput', () {
+    // String nonce
+    test('to test the property `nonce`', () async {
       // TODO
     });
 
+    // String signedNonce
+    test('to test the property `signedNonce`', () async {
+      // TODO
+    });
+
+    // int userId
+    test('to test the property `userId`', () async {
+      // TODO
+    });
+
+
   });
+
 }

@@ -12,22 +12,22 @@ import 'package:whisper_openapi_client/api.dart';
 import 'package:test/test.dart';
 
 
-/// tests for UserApi
+/// tests for AuthenticationApi
 void main() {
-  // final instance = UserApi();
+  // final instance = AuthenticationApi();
 
-  group('tests for UserApi', () {
-    // Delete users
+  group('tests for AuthenticationApi', () {
+    // User auth
     //
-    //Future deleteUsers(List<int> ids) async
-    test('test deleteUsers', () async {
+    //Future<ModelsAuthResponse> authUser({ AuthUserInput authUserInput }) async
+    test('test authUser', () async {
       // TODO
     });
 
-    // Get all users except the user
+    // Register new user
     //
-    //Future<List<ModelsUser>> getAllUsers() async
-    test('test getAllUsers', () async {
+    //Future<ModelsUser> createUser({ CreateUserInput createUserInput }) async
+    test('test createUser', () async {
       // TODO
     });
 
