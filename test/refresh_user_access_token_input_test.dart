@@ -11,25 +11,17 @@
 import 'package:whisper_openapi_client/api.dart';
 import 'package:test/test.dart';
 
-
-/// tests for UserApi
+// tests for RefreshUserAccessTokenInput
 void main() {
-  // final instance = UserApi();
+  // final instance = RefreshUserAccessTokenInput();
 
-  group('tests for UserApi', () {
-    // Delete users
-    //
-    //Future deleteUsers({ DeleteUsersInput deleteUsersInput }) async
-    test('test deleteUsers', () async {
+  group('test RefreshUserAccessTokenInput', () {
+    // String refreshToken
+    test('to test the property `refreshToken`', () async {
       // TODO
     });
 
-    // Get all users except the user
-    //
-    //Future<List<ModelsUser>> getAllUsers() async
-    test('test getAllUsers', () async {
-      // TODO
-    });
 
   });
+
 }

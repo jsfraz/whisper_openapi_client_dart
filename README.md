@@ -62,7 +62,8 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *AuthenticationApi* | [**authUser**](doc//AuthenticationApi.md#authuser) | **POST** /api/auth | User auth
 *AuthenticationApi* | [**createUser**](doc//AuthenticationApi.md#createuser) | **POST** /api/auth/register | Register new user
-*UserApi* | [**deleteUsers**](doc//UserApi.md#deleteusers) | **DELETE** /api/user | Delete users
+*AuthenticationApi* | [**refreshUserAccessToken**](doc//AuthenticationApi.md#refreshuseraccesstoken) | **POST** /api/auth/refresh | Refresh access token.
+*UserApi* | [**deleteUsers**](doc//UserApi.md#deleteusers) | **PATCH** /api/user | Delete users
 *UserApi* | [**getAllUsers**](doc//UserApi.md#getallusers) | **GET** /api/user/all | Get all users except the user
 
 
@@ -70,8 +71,11 @@ Class | Method | HTTP request | Description
 
  - [AuthUserInput](doc//AuthUserInput.md)
  - [CreateUserInput](doc//CreateUserInput.md)
+ - [DeleteUsersInput](doc//DeleteUsersInput.md)
  - [ModelsAuthResponse](doc//ModelsAuthResponse.md)
+ - [ModelsRefreshResponse](doc//ModelsRefreshResponse.md)
  - [ModelsUser](doc//ModelsUser.md)
+ - [RefreshUserAccessTokenInput](doc//RefreshUserAccessTokenInput.md)
 
 
 ## Documentation For Authorization

@@ -11,25 +11,17 @@
 import 'package:whisper_openapi_client/api.dart';
 import 'package:test/test.dart';
 
-
-/// tests for UserApi
+// tests for DeleteUsersInput
 void main() {
-  // final instance = UserApi();
+  // final instance = DeleteUsersInput();
 
-  group('tests for UserApi', () {
-    // Delete users
-    //
-    //Future deleteUsers({ DeleteUsersInput deleteUsersInput }) async
-    test('test deleteUsers', () async {
+  group('test DeleteUsersInput', () {
+    // List<int> ids (default value: const [])
+    test('to test the property `ids`', () async {
       // TODO
     });
 
-    // Get all users except the user
-    //
-    //Future<List<ModelsUser>> getAllUsers() async
-    test('test getAllUsers', () async {
-      // TODO
-    });
 
   });
+
 }
