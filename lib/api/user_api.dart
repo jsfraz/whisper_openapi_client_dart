@@ -22,26 +22,24 @@ class UserApi {
   ///
   /// Parameters:
   ///
-  /// * [List<int>] ids (required):
-  Future<Response> deleteUsersWithHttpInfo(List<int> ids,) async {
+  /// * [DeleteUsersInput] deleteUsersInput:
+  Future<Response> deleteUsersWithHttpInfo({ DeleteUsersInput? deleteUsersInput, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/user';
 
     // ignore: prefer_final_locals
-    Object? postBody;
+    Object? postBody = deleteUsersInput;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-      queryParams.addAll(_queryParams('multi', 'ids', ids));
-
-    const contentTypes = <String>[];
+    const contentTypes = <String>['application/json'];
 
 
     return apiClient.invokeAPI(
       path,
-      'DELETE',
+      'PATCH',
       queryParams,
       postBody,
       headerParams,
@@ -54,9 +52,9 @@ class UserApi {
   ///
   /// Parameters:
   ///
-  /// * [List<int>] ids (required):
-  Future<void> deleteUsers(List<int> ids,) async {
-    final response = await deleteUsersWithHttpInfo(ids,);
+  /// * [DeleteUsersInput] deleteUsersInput:
+  Future<void> deleteUsers({ DeleteUsersInput? deleteUsersInput, }) async {
+    final response = await deleteUsersWithHttpInfo( deleteUsersInput: deleteUsersInput, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

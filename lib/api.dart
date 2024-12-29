@@ -33,8 +33,11 @@ part 'api/user_api.dart';
 
 part 'model/auth_user_input.dart';
 part 'model/create_user_input.dart';
+part 'model/delete_users_input.dart';
 part 'model/models_auth_response.dart';
+part 'model/models_refresh_response.dart';
 part 'model/models_user.dart';
+part 'model/refresh_user_access_token_input.dart';
 
 
 /// An [ApiClient] instance that uses the default values obtained from

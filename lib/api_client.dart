@@ -186,10 +186,16 @@ class ApiClient {
           return AuthUserInput.fromJson(value);
         case 'CreateUserInput':
           return CreateUserInput.fromJson(value);
+        case 'DeleteUsersInput':
+          return DeleteUsersInput.fromJson(value);
         case 'ModelsAuthResponse':
           return ModelsAuthResponse.fromJson(value);
+        case 'ModelsRefreshResponse':
+          return ModelsRefreshResponse.fromJson(value);
         case 'ModelsUser':
           return ModelsUser.fromJson(value);
+        case 'RefreshUserAccessTokenInput':
+          return RefreshUserAccessTokenInput.fromJson(value);
         default:
           dynamic match;
           if (value is List && (match = _regList.firstMatch(targetType)?.group(1)) != null) {

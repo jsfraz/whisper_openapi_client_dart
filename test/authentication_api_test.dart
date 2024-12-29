@@ -31,5 +31,12 @@ void main() {
       // TODO
     });
 
+    // Refresh access token.
+    //
+    //Future<ModelsRefreshResponse> refreshUserAccessToken({ RefreshUserAccessTokenInput refreshUserAccessTokenInput }) async
+    test('test refreshUserAccessToken', () async {
+      // TODO
+    });
+
   });
 }

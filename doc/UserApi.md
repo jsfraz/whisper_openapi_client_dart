@@ -9,12 +9,12 @@ All URIs are relative to *http://localhost:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**deleteUsers**](UserApi.md#deleteusers) | **DELETE** /api/user | Delete users
+[**deleteUsers**](UserApi.md#deleteusers) | **PATCH** /api/user | Delete users
 [**getAllUsers**](UserApi.md#getallusers) | **GET** /api/user/all | Get all users except the user
 
 
 # **deleteUsers**
-> deleteUsers(ids)
+> deleteUsers(deleteUsersInput)
 
 Delete users
 
@@ -29,10 +29,10 @@ import 'package:whisper_openapi_client/api.dart';
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
 final api_instance = UserApi();
-final ids = []; // List<int> | 
+final deleteUsersInput = DeleteUsersInput(); // DeleteUsersInput | 
 
 try {
-    api_instance.deleteUsers(ids);
+    api_instance.deleteUsers(deleteUsersInput);
 } catch (e) {
     print('Exception when calling UserApi->deleteUsers: $e\n');
 }
@@ -42,7 +42,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | [**List<int>**](int.md)|  | [default to const []]
+ **deleteUsersInput** | [**DeleteUsersInput**](DeleteUsersInput.md)|  | [optional] 
 
 ### Return type
 
@@ -54,7 +54,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
