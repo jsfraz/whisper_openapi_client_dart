@@ -63,6 +63,8 @@ Class | Method | HTTP request | Description
 *AuthenticationApi* | [**authUser**](doc//AuthenticationApi.md#authuser) | **POST** /api/auth | User auth
 *AuthenticationApi* | [**createUser**](doc//AuthenticationApi.md#createuser) | **POST** /api/auth/register | Register new user
 *AuthenticationApi* | [**refreshUserAccessToken**](doc//AuthenticationApi.md#refreshuseraccesstoken) | **POST** /api/auth/refresh | Refresh access token.
+*InviteApi* | [**createInvite**](doc//InviteApi.md#createinvite) | **POST** /api/invite | Create registration invite
+*InviteApi* | [**getAllInvites**](doc//InviteApi.md#getallinvites) | **GET** /api/invite/all | Get all active registration invites
 *UserApi* | [**deleteUsers**](doc//UserApi.md#deleteusers) | **PATCH** /api/user | Delete users
 *UserApi* | [**getAllUsers**](doc//UserApi.md#getallusers) | **GET** /api/user/all | Get all users except the user
 
@@ -70,9 +72,11 @@ Class | Method | HTTP request | Description
 ## Documentation For Models
 
  - [AuthUserInput](doc//AuthUserInput.md)
+ - [CreateInviteInput](doc//CreateInviteInput.md)
  - [CreateUserInput](doc//CreateUserInput.md)
  - [DeleteUsersInput](doc//DeleteUsersInput.md)
  - [ModelsAuthResponse](doc//ModelsAuthResponse.md)
+ - [ModelsInvite](doc//ModelsInvite.md)
  - [ModelsRefreshResponse](doc//ModelsRefreshResponse.md)
  - [ModelsUser](doc//ModelsUser.md)
  - [RefreshUserAccessTokenInput](doc//RefreshUserAccessTokenInput.md)

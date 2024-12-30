@@ -184,12 +184,16 @@ class ApiClient {
           return value is DateTime ? value : DateTime.tryParse(value);
         case 'AuthUserInput':
           return AuthUserInput.fromJson(value);
+        case 'CreateInviteInput':
+          return CreateInviteInput.fromJson(value);
         case 'CreateUserInput':
           return CreateUserInput.fromJson(value);
         case 'DeleteUsersInput':
           return DeleteUsersInput.fromJson(value);
         case 'ModelsAuthResponse':
           return ModelsAuthResponse.fromJson(value);
+        case 'ModelsInvite':
+          return ModelsInvite.fromJson(value);
         case 'ModelsRefreshResponse':
           return ModelsRefreshResponse.fromJson(value);
         case 'ModelsUser':
