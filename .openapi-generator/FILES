@@ -37,15 +37,3 @@ lib/model/models_refresh_response.dart
 lib/model/models_user.dart
 lib/model/refresh_user_access_token_input.dart
 pubspec.yaml
-test/auth_user_input_test.dart
-test/authentication_api_test.dart
-test/create_invite_input_test.dart
-test/create_user_input_test.dart
-test/delete_users_input_test.dart
-test/invite_api_test.dart
-test/models_auth_response_test.dart
-test/models_invite_test.dart
-test/models_refresh_response_test.dart
-test/models_user_test.dart
-test/refresh_user_access_token_input_test.dart
-test/user_api_test.dart

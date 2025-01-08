@@ -15,7 +15,6 @@ class ModelsUser {
   ModelsUser({
     required this.admin,
     required this.id,
-    required this.mail,
     required this.publicKey,
     required this.username,
   });
@@ -23,8 +22,6 @@ class ModelsUser {
   bool admin;
 
   int id;
-
-  String mail;
 
   String publicKey;
 
@@ -34,7 +31,6 @@ class ModelsUser {
   bool operator ==(Object other) => identical(this, other) || other is ModelsUser &&
     other.admin == admin &&
     other.id == id &&
-    other.mail == mail &&
     other.publicKey == publicKey &&
     other.username == username;
 
@@ -43,18 +39,16 @@ class ModelsUser {
     // ignore: unnecessary_parenthesis
     (admin.hashCode) +
     (id.hashCode) +
-    (mail.hashCode) +
     (publicKey.hashCode) +
     (username.hashCode);
 
   @override
-  String toString() => 'ModelsUser[admin=$admin, id=$id, mail=$mail, publicKey=$publicKey, username=$username]';
+  String toString() => 'ModelsUser[admin=$admin, id=$id, publicKey=$publicKey, username=$username]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
       json[r'admin'] = this.admin;
       json[r'id'] = this.id;
-      json[r'mail'] = this.mail;
       json[r'publicKey'] = this.publicKey;
       json[r'username'] = this.username;
     return json;
@@ -81,7 +75,6 @@ class ModelsUser {
       return ModelsUser(
         admin: mapValueOfType<bool>(json, r'admin')!,
         id: mapValueOfType<int>(json, r'id')!,
-        mail: mapValueOfType<String>(json, r'mail')!,
         publicKey: mapValueOfType<String>(json, r'publicKey')!,
         username: mapValueOfType<String>(json, r'username')!,
       );
@@ -133,7 +126,6 @@ class ModelsUser {
   static const requiredKeys = <String>{
     'admin',
     'id',
-    'mail',
     'publicKey',
     'username',
   };

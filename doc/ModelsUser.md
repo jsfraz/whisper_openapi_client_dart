@@ -10,7 +10,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **admin** | **bool** |  | 
 **id** | **int** |  | 
-**mail** | **String** |  | 
 **publicKey** | **String** |  | 
 **username** | **String** |  | 
 
