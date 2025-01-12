@@ -31,6 +31,7 @@ part 'auth/http_bearer_auth.dart';
 part 'api/authentication_api.dart';
 part 'api/invite_api.dart';
 part 'api/user_api.dart';
+part 'api/web_socket_authentication_api.dart';
 
 part 'model/auth_user_input.dart';
 part 'model/create_invite_input.dart';

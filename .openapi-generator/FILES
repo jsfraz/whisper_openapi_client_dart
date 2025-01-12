@@ -15,11 +15,13 @@ doc/ModelsUser.md
 doc/ModelsWsAuthResponse.md
 doc/RefreshUserAccessTokenInput.md
 doc/UserApi.md
+doc/WebSocketAuthenticationApi.md
 git_push.sh
 lib/api.dart
 lib/api/authentication_api.dart
 lib/api/invite_api.dart
 lib/api/user_api.dart
+lib/api/web_socket_authentication_api.dart
 lib/api_client.dart
 lib/api_exception.dart
 lib/api_helper.dart
@@ -52,3 +54,4 @@ test/models_user_test.dart
 test/models_ws_auth_response_test.dart
 test/refresh_user_access_token_input_test.dart
 test/user_api_test.dart
+test/web_socket_authentication_api_test.dart
