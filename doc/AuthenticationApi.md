@@ -12,6 +12,7 @@ Method | HTTP request | Description
 [**authUser**](AuthenticationApi.md#authuser) | **POST** /api/auth | User auth
 [**createUser**](AuthenticationApi.md#createuser) | **POST** /api/auth/register | Register new user
 [**refreshUserAccessToken**](AuthenticationApi.md#refreshuseraccesstoken) | **POST** /api/auth/refresh | Refresh access token.
+[**webSocketAuth**](AuthenticationApi.md#websocketauth) | **POST** /api/auth/ws | WebSocket auth
 
 
 # **authUser**
@@ -133,6 +134,43 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **webSocketAuth**
+> ModelsWsAuthResponse webSocketAuth()
+
+WebSocket auth
+
+### Example
+```dart
+import 'package:whisper_openapi_client/api.dart';
+
+final api_instance = AuthenticationApi();
+
+try {
+    final result = api_instance.webSocketAuth();
+    print(result);
+} catch (e) {
+    print('Exception when calling AuthenticationApi->webSocketAuth: $e\n');
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**ModelsWsAuthResponse**](ModelsWsAuthResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

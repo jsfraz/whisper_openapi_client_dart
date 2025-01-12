@@ -198,6 +198,8 @@ class ApiClient {
           return ModelsRefreshResponse.fromJson(value);
         case 'ModelsUser':
           return ModelsUser.fromJson(value);
+        case 'ModelsWsAuthResponse':
+          return ModelsWsAuthResponse.fromJson(value);
         case 'RefreshUserAccessTokenInput':
           return RefreshUserAccessTokenInput.fromJson(value);
         default:
