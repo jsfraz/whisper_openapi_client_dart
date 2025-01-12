@@ -63,6 +63,7 @@ Class | Method | HTTP request | Description
 *AuthenticationApi* | [**authUser**](doc//AuthenticationApi.md#authuser) | **POST** /api/auth | User auth
 *AuthenticationApi* | [**createUser**](doc//AuthenticationApi.md#createuser) | **POST** /api/auth/register | Register new user
 *AuthenticationApi* | [**refreshUserAccessToken**](doc//AuthenticationApi.md#refreshuseraccesstoken) | **POST** /api/auth/refresh | Refresh access token.
+*AuthenticationApi* | [**webSocketAuth**](doc//AuthenticationApi.md#websocketauth) | **POST** /api/auth/ws | WebSocket auth
 *InviteApi* | [**createInvite**](doc//InviteApi.md#createinvite) | **POST** /api/invite | Create registration invite
 *InviteApi* | [**getAllInvites**](doc//InviteApi.md#getallinvites) | **GET** /api/invite/all | Get all active registration invites
 *UserApi* | [**deleteUsers**](doc//UserApi.md#deleteusers) | **PATCH** /api/user | Delete users
@@ -79,6 +80,7 @@ Class | Method | HTTP request | Description
  - [ModelsInvite](doc//ModelsInvite.md)
  - [ModelsRefreshResponse](doc//ModelsRefreshResponse.md)
  - [ModelsUser](doc//ModelsUser.md)
+ - [ModelsWsAuthResponse](doc//ModelsWsAuthResponse.md)
  - [RefreshUserAccessTokenInput](doc//RefreshUserAccessTokenInput.md)
 
 

@@ -40,6 +40,7 @@ part 'model/models_auth_response.dart';
 part 'model/models_invite.dart';
 part 'model/models_refresh_response.dart';
 part 'model/models_user.dart';
+part 'model/models_ws_auth_response.dart';
 part 'model/refresh_user_access_token_input.dart';
 
 

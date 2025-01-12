@@ -38,5 +38,12 @@ void main() {
       // TODO
     });
 
+    // WebSocket auth
+    //
+    //Future<ModelsWsAuthResponse> webSocketAuth() async
+    test('test webSocketAuth', () async {
+      // TODO
+    });
+
   });
 }

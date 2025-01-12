@@ -26,11 +26,6 @@ void main() {
       // TODO
     });
 
-    // String mail
-    test('to test the property `mail`', () async {
-      // TODO
-    });
-
     // String publicKey
     test('to test the property `publicKey`', () async {
       // TODO
