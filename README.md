@@ -67,6 +67,7 @@ Class | Method | HTTP request | Description
 *InviteApi* | [**getAllInvites**](doc//InviteApi.md#getallinvites) | **GET** /api/invite/all | Get all active registration invites
 *UserApi* | [**deleteUsers**](doc//UserApi.md#deleteusers) | **PATCH** /api/user | Delete users
 *UserApi* | [**getAllUsers**](doc//UserApi.md#getallusers) | **GET** /api/user/all | Get all users except the user
+*UserApi* | [**searchUsers**](doc//UserApi.md#searchusers) | **GET** /api/user/search | Search users
 *WebSocketAuthenticationApi* | [**webSocketAuth**](doc//WebSocketAuthenticationApi.md#websocketauth) | **POST** /api/wsauth | WebSocket auth
 
 
