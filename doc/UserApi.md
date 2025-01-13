@@ -104,7 +104,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **searchUsers**
-> List<ModelsUser> searchUsers()
+> List<ModelsUser> searchUsers(username)
 
 Search users
 
@@ -119,9 +119,10 @@ import 'package:whisper_openapi_client/api.dart';
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
 final api_instance = UserApi();
+final username = username_example; // String | 
 
 try {
-    final result = api_instance.searchUsers();
+    final result = api_instance.searchUsers(username);
     print(result);
 } catch (e) {
     print('Exception when calling UserApi->searchUsers: $e\n');
@@ -129,7 +130,10 @@ try {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **username** | **String**|  | 
 
 ### Return type
 

@@ -110,7 +110,11 @@ class UserApi {
   /// Search users
   ///
   /// Note: This method returns the HTTP [Response].
-  Future<Response> searchUsersWithHttpInfo() async {
+  ///
+  /// Parameters:
+  ///
+  /// * [String] username (required):
+  Future<Response> searchUsersWithHttpInfo(String username,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/user/search';
 
@@ -120,6 +124,8 @@ class UserApi {
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
+
+      queryParams.addAll(_queryParams('', 'username', username));
 
     const contentTypes = <String>[];
 
@@ -136,8 +142,12 @@ class UserApi {
   }
 
   /// Search users
-  Future<List<ModelsUser>?> searchUsers() async {
-    final response = await searchUsersWithHttpInfo();
+  ///
+  /// Parameters:
+  ///
+  /// * [String] username (required):
+  Future<List<ModelsUser>?> searchUsers(String username,) async {
+    final response = await searchUsersWithHttpInfo(username,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
