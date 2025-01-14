@@ -1,8 +1,8 @@
-# whisper_openapi_client.api.UserApi
+# whisper_openapi_client_dart.api.UserApi
 
 ## Load the API package
 ```dart
-import 'package:whisper_openapi_client/api.dart';
+import 'package:whisper_openapi_client_dart/api.dart';
 ```
 
 All URIs are relative to *http://localhost:8080*
@@ -21,7 +21,7 @@ Delete users
 
 ### Example
 ```dart
-import 'package:whisper_openapi_client/api.dart';
+import 'package:whisper_openapi_client_dart/api.dart';
 // TODO Configure HTTP Bearer authorization: bearerAuth
 // Case 1. Use String Token
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
@@ -67,7 +67,7 @@ Get all users except the user
 
 ### Example
 ```dart
-import 'package:whisper_openapi_client/api.dart';
+import 'package:whisper_openapi_client_dart/api.dart';
 // TODO Configure HTTP Bearer authorization: bearerAuth
 // Case 1. Use String Token
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
@@ -110,7 +110,7 @@ Search users
 
 ### Example
 ```dart
-import 'package:whisper_openapi_client/api.dart';
+import 'package:whisper_openapi_client_dart/api.dart';
 // TODO Configure HTTP Bearer authorization: bearerAuth
 // Case 1. Use String Token
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');

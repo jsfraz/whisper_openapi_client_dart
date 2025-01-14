@@ -1,8 +1,8 @@
-# whisper_openapi_client.model.RefreshUserAccessTokenInput
+# whisper_openapi_client_dart.model.RefreshUserAccessTokenInput
 
 ## Load the model package
 ```dart
-import 'package:whisper_openapi_client/api.dart';
+import 'package:whisper_openapi_client_dart/api.dart';
 ```
 
 ## Properties
