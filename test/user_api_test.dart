@@ -8,7 +8,7 @@
 // ignore_for_file: constant_identifier_names
 // ignore_for_file: lines_longer_than_80_chars
 
-import 'package:whisper_openapi_client/api.dart';
+import 'package:whisper_openapi_client_dart/api.dart';
 import 'package:test/test.dart';
 
 
@@ -28,6 +28,13 @@ void main() {
     //
     //Future<List<ModelsUser>> getAllUsers() async
     test('test getAllUsers', () async {
+      // TODO
+    });
+
+    // Search users
+    //
+    //Future<List<ModelsUser>> searchUsers(String username) async
+    test('test searchUsers', () async {
       // TODO
     });
 

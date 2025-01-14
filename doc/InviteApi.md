@@ -1,8 +1,8 @@
-# whisper_openapi_client.api.InviteApi
+# whisper_openapi_client_dart.api.InviteApi
 
 ## Load the API package
 ```dart
-import 'package:whisper_openapi_client/api.dart';
+import 'package:whisper_openapi_client_dart/api.dart';
 ```
 
 All URIs are relative to *http://localhost:8080*
@@ -20,7 +20,7 @@ Create registration invite
 
 ### Example
 ```dart
-import 'package:whisper_openapi_client/api.dart';
+import 'package:whisper_openapi_client_dart/api.dart';
 // TODO Configure HTTP Bearer authorization: bearerAuth
 // Case 1. Use String Token
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
@@ -66,7 +66,7 @@ Get all active registration invites
 
 ### Example
 ```dart
-import 'package:whisper_openapi_client/api.dart';
+import 'package:whisper_openapi_client_dart/api.dart';
 // TODO Configure HTTP Bearer authorization: bearerAuth
 // Case 1. Use String Token
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');

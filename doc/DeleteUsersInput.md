@@ -1,8 +1,8 @@
-# whisper_openapi_client.model.DeleteUsersInput
+# whisper_openapi_client_dart.model.DeleteUsersInput
 
 ## Load the model package
 ```dart
-import 'package:whisper_openapi_client/api.dart';
+import 'package:whisper_openapi_client_dart/api.dart';
 ```
 
 ## Properties

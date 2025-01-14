@@ -1,8 +1,8 @@
-# whisper_openapi_client.api.AuthenticationApi
+# whisper_openapi_client_dart.api.AuthenticationApi
 
 ## Load the API package
 ```dart
-import 'package:whisper_openapi_client/api.dart';
+import 'package:whisper_openapi_client_dart/api.dart';
 ```
 
 All URIs are relative to *http://localhost:8080*
@@ -21,7 +21,7 @@ User auth
 
 ### Example
 ```dart
-import 'package:whisper_openapi_client/api.dart';
+import 'package:whisper_openapi_client_dart/api.dart';
 
 final api_instance = AuthenticationApi();
 final authUserInput = AuthUserInput(); // AuthUserInput | 
@@ -62,7 +62,7 @@ Register new user
 
 ### Example
 ```dart
-import 'package:whisper_openapi_client/api.dart';
+import 'package:whisper_openapi_client_dart/api.dart';
 
 final api_instance = AuthenticationApi();
 final createUserInput = CreateUserInput(); // CreateUserInput | 
@@ -103,7 +103,7 @@ Refresh access token.
 
 ### Example
 ```dart
-import 'package:whisper_openapi_client/api.dart';
+import 'package:whisper_openapi_client_dart/api.dart';
 
 final api_instance = AuthenticationApi();
 final refreshUserAccessTokenInput = RefreshUserAccessTokenInput(); // RefreshUserAccessTokenInput | 

@@ -1,8 +1,8 @@
-# whisper_openapi_client.model.CreateInviteInput
+# whisper_openapi_client_dart.model.CreateInviteInput
 
 ## Load the model package
 ```dart
-import 'package:whisper_openapi_client/api.dart';
+import 'package:whisper_openapi_client_dart/api.dart';
 ```
 
 ## Properties
