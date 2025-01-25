@@ -31,6 +31,13 @@ void main() {
       // TODO
     });
 
+    // Get user by ID
+    //
+    //Future<ModelsUser> getUserById(int id) async
+    test('test getUserById', () async {
+      // TODO
+    });
+
     // Search users
     //
     //Future<List<ModelsUser>> searchUsers(String username) async

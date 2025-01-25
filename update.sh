@@ -1,6 +1,6 @@
 #!/bin/sh
 
-VERSION=7.9.0
+VERSION=7.11.0
 OPENAPI_PATH=http://localhost:8080/api/openapi.json
 
 # Download generator

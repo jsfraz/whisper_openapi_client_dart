@@ -11,6 +11,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**deleteUsers**](UserApi.md#deleteusers) | **PATCH** /api/user | Delete users
 [**getAllUsers**](UserApi.md#getallusers) | **GET** /api/user/all | Get all users except the user
+[**getUserById**](UserApi.md#getuserbyid) | **GET** /api/user | Get user by ID
 [**searchUsers**](UserApi.md#searchusers) | **GET** /api/user/search | Search users
 
 
@@ -91,6 +92,53 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**List<ModelsUser>**](ModelsUser.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getUserById**
+> ModelsUser getUserById(id)
+
+Get user by ID
+
+### Example
+```dart
+import 'package:whisper_openapi_client_dart/api.dart';
+// TODO Configure HTTP Bearer authorization: bearerAuth
+// Case 1. Use String Token
+//defaultApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
+// Case 2. Use Function which generate token.
+// String yourTokenGeneratorFunction() { ... }
+//defaultApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
+
+final api_instance = UserApi();
+final id = 789; // int | 
+
+try {
+    final result = api_instance.getUserById(id);
+    print(result);
+} catch (e) {
+    print('Exception when calling UserApi->getUserById: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**|  | 
+
+### Return type
+
+[**ModelsUser**](ModelsUser.md)
 
 ### Authorization
 
