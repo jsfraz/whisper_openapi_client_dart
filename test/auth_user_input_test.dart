@@ -16,18 +16,8 @@ void main() {
   // final instance = AuthUserInput();
 
   group('test AuthUserInput', () {
-    // String nonce
-    test('to test the property `nonce`', () async {
-      // TODO
-    });
-
-    // String signedNonce
-    test('to test the property `signedNonce`', () async {
-      // TODO
-    });
-
-    // int userId
-    test('to test the property `userId`', () async {
+    // String jwtToken
+    test('to test the property `jwtToken`', () async {
       // TODO
     });
 

@@ -13,38 +13,26 @@ part of openapi.api;
 class AuthUserInput {
   /// Returns a new [AuthUserInput] instance.
   AuthUserInput({
-    required this.nonce,
-    required this.signedNonce,
-    required this.userId,
+    required this.jwtToken,
   });
 
-  String nonce;
-
-  String signedNonce;
-
-  int userId;
+  String jwtToken;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is AuthUserInput &&
-    other.nonce == nonce &&
-    other.signedNonce == signedNonce &&
-    other.userId == userId;
+    other.jwtToken == jwtToken;
 
   @override
   int get hashCode =>
     // ignore: unnecessary_parenthesis
-    (nonce.hashCode) +
-    (signedNonce.hashCode) +
-    (userId.hashCode);
+    (jwtToken.hashCode);
 
   @override
-  String toString() => 'AuthUserInput[nonce=$nonce, signedNonce=$signedNonce, userId=$userId]';
+  String toString() => 'AuthUserInput[jwtToken=$jwtToken]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'nonce'] = this.nonce;
-      json[r'signedNonce'] = this.signedNonce;
-      json[r'userId'] = this.userId;
+      json[r'jwtToken'] = this.jwtToken;
     return json;
   }
 
@@ -67,9 +55,7 @@ class AuthUserInput {
       }());
 
       return AuthUserInput(
-        nonce: mapValueOfType<String>(json, r'nonce')!,
-        signedNonce: mapValueOfType<String>(json, r'signedNonce')!,
-        userId: mapValueOfType<int>(json, r'userId')!,
+        jwtToken: mapValueOfType<String>(json, r'jwtToken')!,
       );
     }
     return null;
@@ -117,9 +103,7 @@ class AuthUserInput {
 
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
-    'nonce',
-    'signedNonce',
-    'userId',
+    'jwtToken',
   };
 }
 
