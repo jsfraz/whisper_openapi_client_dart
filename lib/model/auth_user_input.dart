@@ -13,26 +13,26 @@ part of openapi.api;
 class AuthUserInput {
   /// Returns a new [AuthUserInput] instance.
   AuthUserInput({
-    required this.jwtToken,
+    required this.token,
   });
 
-  String jwtToken;
+  String token;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is AuthUserInput &&
-    other.jwtToken == jwtToken;
+    other.token == token;
 
   @override
   int get hashCode =>
     // ignore: unnecessary_parenthesis
-    (jwtToken.hashCode);
+    (token.hashCode);
 
   @override
-  String toString() => 'AuthUserInput[jwtToken=$jwtToken]';
+  String toString() => 'AuthUserInput[token=$token]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'jwtToken'] = this.jwtToken;
+      json[r'token'] = this.token;
     return json;
   }
 
@@ -55,7 +55,7 @@ class AuthUserInput {
       }());
 
       return AuthUserInput(
-        jwtToken: mapValueOfType<String>(json, r'jwtToken')!,
+        token: mapValueOfType<String>(json, r'token')!,
       );
     }
     return null;
@@ -103,7 +103,7 @@ class AuthUserInput {
 
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
-    'jwtToken',
+    'token',
   };
 }
 
