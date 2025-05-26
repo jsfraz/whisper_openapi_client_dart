@@ -7,6 +7,7 @@ doc/AuthenticationApi.md
 doc/CreateInviteInput.md
 doc/CreateUserInput.md
 doc/DeleteUsersInput.md
+doc/FirebaseApi.md
 doc/InviteApi.md
 doc/ModelsAuthResponse.md
 doc/ModelsInvite.md
@@ -14,11 +15,13 @@ doc/ModelsRefreshResponse.md
 doc/ModelsUser.md
 doc/ModelsWsAuthResponse.md
 doc/RefreshUserAccessTokenInput.md
+doc/SetFirebaseTokenInput.md
 doc/UserApi.md
 doc/WebSocketAuthenticationApi.md
 git_push.sh
 lib/api.dart
 lib/api/authentication_api.dart
+lib/api/firebase_api.dart
 lib/api/invite_api.dart
 lib/api/user_api.dart
 lib/api/web_socket_authentication_api.dart
@@ -40,4 +43,7 @@ lib/model/models_refresh_response.dart
 lib/model/models_user.dart
 lib/model/models_ws_auth_response.dart
 lib/model/refresh_user_access_token_input.dart
+lib/model/set_firebase_token_input.dart
 pubspec.yaml
+test/firebase_api_test.dart
+test/set_firebase_token_input_test.dart

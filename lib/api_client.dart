@@ -202,6 +202,8 @@ class ApiClient {
           return ModelsWsAuthResponse.fromJson(value);
         case 'RefreshUserAccessTokenInput':
           return RefreshUserAccessTokenInput.fromJson(value);
+        case 'SetFirebaseTokenInput':
+          return SetFirebaseTokenInput.fromJson(value);
         default:
           dynamic match;
           if (value is List && (match = _regList.firstMatch(targetType)?.group(1)) != null) {
