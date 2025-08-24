@@ -45,5 +45,3 @@ lib/model/models_ws_auth_response.dart
 lib/model/refresh_user_access_token_input.dart
 lib/model/set_firebase_token_input.dart
 pubspec.yaml
-test/firebase_api_test.dart
-test/set_firebase_token_input_test.dart

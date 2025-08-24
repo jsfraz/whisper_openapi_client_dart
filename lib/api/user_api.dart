@@ -16,6 +16,42 @@ class UserApi {
 
   final ApiClient apiClient;
 
+  /// Delete my account
+  ///
+  /// Note: This method returns the HTTP [Response].
+  Future<Response> deleteMeWithHttpInfo() async {
+    // ignore: prefer_const_declarations
+    final path = r'/api/user/me';
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>[];
+
+
+    return apiClient.invokeAPI(
+      path,
+      'DELETE',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Delete my account
+  Future<void> deleteMe() async {
+    final response = await deleteMeWithHttpInfo();
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+  }
+
   /// Delete users
   ///
   /// Note: This method returns the HTTP [Response].

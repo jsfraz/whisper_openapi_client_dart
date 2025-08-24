@@ -9,11 +9,54 @@ All URIs are relative to *http://localhost:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**deleteMe**](UserApi.md#deleteme) | **DELETE** /api/user/me | Delete my account
 [**deleteUsers**](UserApi.md#deleteusers) | **PATCH** /api/user | Delete users
 [**getAllUsers**](UserApi.md#getallusers) | **GET** /api/user/all | Get all users except the user
 [**getUserById**](UserApi.md#getuserbyid) | **GET** /api/user | Get user by ID
 [**searchUsers**](UserApi.md#searchusers) | **GET** /api/user/search | Search users
 
+
+# **deleteMe**
+> deleteMe()
+
+Delete my account
+
+### Example
+```dart
+import 'package:whisper_openapi_client_dart/api.dart';
+// TODO Configure HTTP Bearer authorization: bearerAuth
+// Case 1. Use String Token
+//defaultApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
+// Case 2. Use Function which generate token.
+// String yourTokenGeneratorFunction() { ... }
+//defaultApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
+
+final api_instance = UserApi();
+
+try {
+    api_instance.deleteMe();
+} catch (e) {
+    print('Exception when calling UserApi->deleteMe: $e\n');
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **deleteUsers**
 > deleteUsers(deleteUsersInput)
