@@ -190,10 +190,16 @@ class ApiClient {
           return CreateUserInput.fromJson(value);
         case 'DeleteUsersInput':
           return DeleteUsersInput.fromJson(value);
+        case 'HandlersMessageResponse':
+          return HandlersMessageResponse.fromJson(value);
         case 'ModelsAuthResponse':
           return ModelsAuthResponse.fromJson(value);
+        case 'ModelsDeviceSession':
+          return ModelsDeviceSession.fromJson(value);
         case 'ModelsInvite':
           return ModelsInvite.fromJson(value);
+        case 'ModelsLinkGenerateResponse':
+          return ModelsLinkGenerateResponse.fromJson(value);
         case 'ModelsRefreshResponse':
           return ModelsRefreshResponse.fromJson(value);
         case 'ModelsUser':
@@ -202,6 +208,8 @@ class ApiClient {
           return ModelsWsAuthResponse.fromJson(value);
         case 'RefreshUserAccessTokenInput':
           return RefreshUserAccessTokenInput.fromJson(value);
+        case 'RequestLinkInput':
+          return RequestLinkInput.fromJson(value);
         case 'SetFirebaseTokenInput':
           return SetFirebaseTokenInput.fromJson(value);
         default:
