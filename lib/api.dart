@@ -29,10 +29,8 @@ part 'auth/http_basic_auth.dart';
 part 'auth/http_bearer_auth.dart';
 
 part 'api/authentication_api.dart';
-part 'api/device_api.dart';
 part 'api/firebase_api.dart';
 part 'api/invite_api.dart';
-part 'api/link_api.dart';
 part 'api/user_api.dart';
 part 'api/web_socket_authentication_api.dart';
 
@@ -40,16 +38,12 @@ part 'model/auth_user_input.dart';
 part 'model/create_invite_input.dart';
 part 'model/create_user_input.dart';
 part 'model/delete_users_input.dart';
-part 'model/handlers_message_response.dart';
 part 'model/models_auth_response.dart';
-part 'model/models_device_session.dart';
 part 'model/models_invite.dart';
-part 'model/models_link_generate_response.dart';
 part 'model/models_refresh_response.dart';
 part 'model/models_user.dart';
 part 'model/models_ws_auth_response.dart';
 part 'model/refresh_user_access_token_input.dart';
-part 'model/request_link_input.dart';
 part 'model/set_firebase_token_input.dart';
 
 

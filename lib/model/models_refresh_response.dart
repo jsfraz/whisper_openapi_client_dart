@@ -47,8 +47,10 @@ class ModelsRefreshResponse {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        assert(json.containsKey(r'accessToken'), 'Required key "ModelsRefreshResponse[accessToken]" is missing from JSON.');
-        assert(json[r'accessToken'] != null, 'Required key "ModelsRefreshResponse[accessToken]" has a null value in JSON.');
+        requiredKeys.forEach((key) {
+          assert(json.containsKey(key), 'Required key "ModelsRefreshResponse[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "ModelsRefreshResponse[$key]" has a null value in JSON.');
+        });
         return true;
       }());
 

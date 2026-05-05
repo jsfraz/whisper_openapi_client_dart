@@ -47,8 +47,10 @@ class ModelsWsAuthResponse {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        assert(json.containsKey(r'accessToken'), 'Required key "ModelsWsAuthResponse[accessToken]" is missing from JSON.');
-        assert(json[r'accessToken'] != null, 'Required key "ModelsWsAuthResponse[accessToken]" has a null value in JSON.');
+        requiredKeys.forEach((key) {
+          assert(json.containsKey(key), 'Required key "ModelsWsAuthResponse[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "ModelsWsAuthResponse[$key]" has a null value in JSON.');
+        });
         return true;
       }());
 

@@ -47,8 +47,10 @@ class RefreshUserAccessTokenInput {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        assert(json.containsKey(r'refreshToken'), 'Required key "RefreshUserAccessTokenInput[refreshToken]" is missing from JSON.');
-        assert(json[r'refreshToken'] != null, 'Required key "RefreshUserAccessTokenInput[refreshToken]" has a null value in JSON.');
+        requiredKeys.forEach((key) {
+          assert(json.containsKey(key), 'Required key "RefreshUserAccessTokenInput[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "RefreshUserAccessTokenInput[$key]" has a null value in JSON.');
+        });
         return true;
       }());
 
