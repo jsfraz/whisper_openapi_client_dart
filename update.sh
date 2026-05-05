@@ -1,6 +1,6 @@
 #!/bin/sh
 
-VERSION=7.21.0
+VERSION=7.15.0
 OPENAPI_PATH=http://localhost:8080/api/openapi.json
 
 # Download OpenaAPI spec

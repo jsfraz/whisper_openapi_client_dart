@@ -59,12 +59,10 @@ class CreateUserInput {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        assert(json.containsKey(r'inviteCode'), 'Required key "CreateUserInput[inviteCode]" is missing from JSON.');
-        assert(json[r'inviteCode'] != null, 'Required key "CreateUserInput[inviteCode]" has a null value in JSON.');
-        assert(json.containsKey(r'publicKey'), 'Required key "CreateUserInput[publicKey]" is missing from JSON.');
-        assert(json[r'publicKey'] != null, 'Required key "CreateUserInput[publicKey]" has a null value in JSON.');
-        assert(json.containsKey(r'username'), 'Required key "CreateUserInput[username]" is missing from JSON.');
-        assert(json[r'username'] != null, 'Required key "CreateUserInput[username]" has a null value in JSON.');
+        requiredKeys.forEach((key) {
+          assert(json.containsKey(key), 'Required key "CreateUserInput[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "CreateUserInput[$key]" has a null value in JSON.');
+        });
         return true;
       }());
 
