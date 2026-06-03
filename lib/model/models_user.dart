@@ -65,10 +65,14 @@ class ModelsUser {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "ModelsUser[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "ModelsUser[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'admin'), 'Required key "ModelsUser[admin]" is missing from JSON.');
+        assert(json[r'admin'] != null, 'Required key "ModelsUser[admin]" has a null value in JSON.');
+        assert(json.containsKey(r'id'), 'Required key "ModelsUser[id]" is missing from JSON.');
+        assert(json[r'id'] != null, 'Required key "ModelsUser[id]" has a null value in JSON.');
+        assert(json.containsKey(r'publicKey'), 'Required key "ModelsUser[publicKey]" is missing from JSON.');
+        assert(json[r'publicKey'] != null, 'Required key "ModelsUser[publicKey]" has a null value in JSON.');
+        assert(json.containsKey(r'username'), 'Required key "ModelsUser[username]" is missing from JSON.');
+        assert(json[r'username'] != null, 'Required key "ModelsUser[username]" has a null value in JSON.');
         return true;
       }());
 

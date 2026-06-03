@@ -59,10 +59,12 @@ class ModelsInvite {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "ModelsInvite[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "ModelsInvite[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'admin'), 'Required key "ModelsInvite[admin]" is missing from JSON.');
+        assert(json[r'admin'] != null, 'Required key "ModelsInvite[admin]" has a null value in JSON.');
+        assert(json.containsKey(r'mail'), 'Required key "ModelsInvite[mail]" is missing from JSON.');
+        assert(json[r'mail'] != null, 'Required key "ModelsInvite[mail]" has a null value in JSON.');
+        assert(json.containsKey(r'validUntil'), 'Required key "ModelsInvite[validUntil]" is missing from JSON.');
+        assert(json[r'validUntil'] != null, 'Required key "ModelsInvite[validUntil]" has a null value in JSON.');
         return true;
       }());
 
