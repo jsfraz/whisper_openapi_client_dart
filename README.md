@@ -66,6 +66,9 @@ Class | Method | HTTP request | Description
 *FirebaseApi* | [**setFirebaseToken**](doc//FirebaseApi.md#setfirebasetoken) | **PATCH** /api/firebase/token | Set client Firebase token
 *InviteApi* | [**createInvite**](doc//InviteApi.md#createinvite) | **POST** /api/invite | Create registration invite
 *InviteApi* | [**getAllInvites**](doc//InviteApi.md#getallinvites) | **GET** /api/invite/all | Get all active registration invites
+*MediaApi* | [**uploadMedia**](doc//MediaApi.md#uploadmedia) | **POST** /api/media | Upload encrypted media file
+*MediaApi* | [**downloadMedia**](doc//MediaApi.md#downloadmedia) | **GET** /api/media/{id} | Download encrypted media file by id
+*MediaApi* | [**confirmMediaDownload**](doc//MediaApi.md#confirmmediadownload) | **DELETE** /api/media/{id} | Confirm media download and delete it
 *UserApi* | [**deleteMe**](doc//UserApi.md#deleteme) | **DELETE** /api/user/me | Delete my account
 *UserApi* | [**deleteUsers**](doc//UserApi.md#deleteusers) | **PATCH** /api/user | Delete users
 *UserApi* | [**getAllUsers**](doc//UserApi.md#getallusers) | **GET** /api/user/all | Get all users except the user
@@ -80,6 +83,7 @@ Class | Method | HTTP request | Description
  - [CreateInviteInput](doc//CreateInviteInput.md)
  - [CreateUserInput](doc//CreateUserInput.md)
  - [DeleteUsersInput](doc//DeleteUsersInput.md)
+ - [MediaUploadResponse](doc//MediaUploadResponse.md)
  - [ModelsAuthResponse](doc//ModelsAuthResponse.md)
  - [ModelsInvite](doc//ModelsInvite.md)
  - [ModelsRefreshResponse](doc//ModelsRefreshResponse.md)
