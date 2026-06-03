@@ -190,22 +190,26 @@ class ApiClient {
           return CreateUserInput.fromJson(value);
         case 'DeleteUsersInput':
           return DeleteUsersInput.fromJson(value);
-        case 'MediaUploadResponse':
-          return MediaUploadResponse.fromJson(value);
         case 'ModelsAuthResponse':
           return ModelsAuthResponse.fromJson(value);
         case 'ModelsInvite':
           return ModelsInvite.fromJson(value);
+        case 'ModelsMediaUploadResponse':
+          return ModelsMediaUploadResponse.fromJson(value);
         case 'ModelsRefreshResponse':
           return ModelsRefreshResponse.fromJson(value);
         case 'ModelsUser':
           return ModelsUser.fromJson(value);
         case 'ModelsWsAuthResponse':
           return ModelsWsAuthResponse.fromJson(value);
+        case 'MultipartFileHeader':
+          return MultipartFileHeader.fromJson(value);
         case 'RefreshUserAccessTokenInput':
           return RefreshUserAccessTokenInput.fromJson(value);
         case 'SetFirebaseTokenInput':
           return SetFirebaseTokenInput.fromJson(value);
+        case 'UploadMediaInput':
+          return UploadMediaInput.fromJson(value);
         default:
           dynamic match;
           if (value is List && (match = _regList.firstMatch(targetType)?.group(1)) != null) {
