@@ -13,6 +13,7 @@ library openapi.api;
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
+import 'dart:typed_data';
 
 import 'package:collection/collection.dart';
 import 'package:http/http.dart';
@@ -31,6 +32,7 @@ part 'auth/http_bearer_auth.dart';
 part 'api/authentication_api.dart';
 part 'api/firebase_api.dart';
 part 'api/invite_api.dart';
+part 'api/media_api.dart';
 part 'api/user_api.dart';
 part 'api/web_socket_authentication_api.dart';
 
@@ -38,6 +40,7 @@ part 'model/auth_user_input.dart';
 part 'model/create_invite_input.dart';
 part 'model/create_user_input.dart';
 part 'model/delete_users_input.dart';
+part 'model/media_upload_response.dart';
 part 'model/models_auth_response.dart';
 part 'model/models_invite.dart';
 part 'model/models_refresh_response.dart';
