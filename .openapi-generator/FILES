@@ -1,6 +1,5 @@
 .gitignore
 .travis.yml
-README.md
 analysis_options.yaml
 doc/AuthUserInput.md
 doc/AuthenticationApi.md
@@ -16,10 +15,8 @@ doc/ModelsMediaUploadResponse.md
 doc/ModelsRefreshResponse.md
 doc/ModelsUser.md
 doc/ModelsWsAuthResponse.md
-doc/MultipartFileHeader.md
 doc/RefreshUserAccessTokenInput.md
 doc/SetFirebaseTokenInput.md
-doc/UploadMediaInput.md
 doc/UserApi.md
 doc/WebSocketAuthenticationApi.md
 git_push.sh
@@ -48,8 +45,6 @@ lib/model/models_media_upload_response.dart
 lib/model/models_refresh_response.dart
 lib/model/models_user.dart
 lib/model/models_ws_auth_response.dart
-lib/model/multipart_file_header.dart
 lib/model/refresh_user_access_token_input.dart
 lib/model/set_firebase_token_input.dart
-lib/model/upload_media_input.dart
 pubspec.yaml

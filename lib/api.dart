@@ -13,7 +13,6 @@ library openapi.api;
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
-import 'dart:typed_data';
 
 import 'package:collection/collection.dart';
 import 'package:http/http.dart';
@@ -46,10 +45,8 @@ part 'model/models_media_upload_response.dart';
 part 'model/models_refresh_response.dart';
 part 'model/models_user.dart';
 part 'model/models_ws_auth_response.dart';
-part 'model/multipart_file_header.dart';
 part 'model/refresh_user_access_token_input.dart';
 part 'model/set_firebase_token_input.dart';
-part 'model/upload_media_input.dart';
 
 
 /// An [ApiClient] instance that uses the default values obtained from

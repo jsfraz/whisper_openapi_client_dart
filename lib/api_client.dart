@@ -202,14 +202,10 @@ class ApiClient {
           return ModelsUser.fromJson(value);
         case 'ModelsWsAuthResponse':
           return ModelsWsAuthResponse.fromJson(value);
-        case 'MultipartFileHeader':
-          return MultipartFileHeader.fromJson(value);
         case 'RefreshUserAccessTokenInput':
           return RefreshUserAccessTokenInput.fromJson(value);
         case 'SetFirebaseTokenInput':
           return SetFirebaseTokenInput.fromJson(value);
-        case 'UploadMediaInput':
-          return UploadMediaInput.fromJson(value);
         default:
           dynamic match;
           if (value is List && (match = _regList.firstMatch(targetType)?.group(1)) != null) {

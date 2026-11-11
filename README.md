@@ -67,6 +67,7 @@ Class | Method | HTTP request | Description
 *InviteApi* | [**createInvite**](doc//InviteApi.md#createinvite) | **POST** /api/invite | Create registration invite
 *InviteApi* | [**getAllInvites**](doc//InviteApi.md#getallinvites) | **GET** /api/invite/all | Get all active registration invites
 *MediaApi* | [**confirmMediaDownload**](doc//MediaApi.md#confirmmediadownload) | **DELETE** /api/media/{id} | Confirm media download and delete it
+*MediaApi* | [**downloadMedia**](doc//MediaApi.md#downloadmedia) | **GET** /api/media/{id} | Download encrypted media file by id
 *MediaApi* | [**uploadMedia**](doc//MediaApi.md#uploadmedia) | **POST** /api/media | Upload encrypted media file
 *UserApi* | [**deleteMe**](doc//UserApi.md#deleteme) | **DELETE** /api/user/me | Delete my account
 *UserApi* | [**deleteUsers**](doc//UserApi.md#deleteusers) | **PATCH** /api/user | Delete users
@@ -88,10 +89,8 @@ Class | Method | HTTP request | Description
  - [ModelsRefreshResponse](doc//ModelsRefreshResponse.md)
  - [ModelsUser](doc//ModelsUser.md)
  - [ModelsWsAuthResponse](doc//ModelsWsAuthResponse.md)
- - [MultipartFileHeader](doc//MultipartFileHeader.md)
  - [RefreshUserAccessTokenInput](doc//RefreshUserAccessTokenInput.md)
  - [SetFirebaseTokenInput](doc//SetFirebaseTokenInput.md)
- - [UploadMediaInput](doc//UploadMediaInput.md)
 
 
 ## Documentation For Authorization
@@ -107,3 +106,12 @@ Authentication schemes defined for the API:
 
 razj@josefraz.cz
 
+## CI
+
+One workflow, `ci.yml`, runs on pull requests and on pushes to `main`:
+
+1. Runs `./scripts/regen.sh` against the committed `openapi.json`.
+2. Fails if `git status` is not clean afterwards — `lib/` and `doc/` must be reproducible from the spec.
+3. Runs `dart pub get` and `dart analyze --no-fatal-warnings`.
+
+No repository secrets are required. `GITHUB_TOKEN` is provided automatically and is not used by any step.
