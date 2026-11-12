@@ -150,15 +150,11 @@ class MediaApi {
 
     bool hasFields = false;
     final mp = MultipartRequest('POST', Uri.parse(path));
-    if (file != null) {
-      hasFields = true;
-      mp.fields[r'file'] = file.field;
-      mp.files.add(file);
-    }
-    if (receiverId != null) {
-      hasFields = true;
-      mp.fields[r'receiverId'] = parameterToString(receiverId);
-    }
+    hasFields = true;
+    mp.fields[r'file'] = file.field;
+    mp.files.add(file);
+    hasFields = true;
+    mp.fields[r'receiverId'] = parameterToString(receiverId);
     if (hasFields) {
       postBody = mp;
     }
