@@ -21,7 +21,7 @@ class ModelsUser {
 
   bool admin;
 
-  int id;
+  String id;
 
   String publicKey;
 
@@ -78,7 +78,7 @@ class ModelsUser {
 
       return ModelsUser(
         admin: mapValueOfType<bool>(json, r'admin')!,
-        id: mapValueOfType<int>(json, r'id')!,
+        id: mapValueOfType<String>(json, r'id')!,
         publicKey: mapValueOfType<String>(json, r'publicKey')!,
         username: mapValueOfType<String>(json, r'username')!,
       );

@@ -133,9 +133,9 @@ class MediaApi {
   /// * [MultipartFile] file (required):
   ///   The encrypted media blob (nonce || mac || ciphertext). Its field name must be file.
   ///
-  /// * [int] receiverId (required):
+  /// * [String] receiverId (required):
   ///   Id of the user the media is sent to.
-  Future<Response> uploadMediaWithHttpInfo(MultipartFile file, int receiverId,) async {
+  Future<Response> uploadMediaWithHttpInfo(MultipartFile file, String receiverId,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/media';
 
@@ -179,9 +179,9 @@ class MediaApi {
   /// * [MultipartFile] file (required):
   ///   The encrypted media blob (nonce || mac || ciphertext). Its field name must be file.
   ///
-  /// * [int] receiverId (required):
+  /// * [String] receiverId (required):
   ///   Id of the user the media is sent to.
-  Future<ModelsMediaUploadResponse?> uploadMedia(MultipartFile file, int receiverId,) async {
+  Future<ModelsMediaUploadResponse?> uploadMedia(MultipartFile file, String receiverId,) async {
     final response = await uploadMediaWithHttpInfo(file, receiverId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));

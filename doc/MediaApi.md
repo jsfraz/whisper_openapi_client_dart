@@ -130,7 +130,7 @@ import 'package:whisper_openapi_client_dart/api.dart';
 
 final api_instance = MediaApi();
 final file = BINARY_DATA_HERE; // MultipartFile | The encrypted media blob (nonce || mac || ciphertext). Its field name must be file.
-final receiverId = 789; // int | Id of the user the media is sent to.
+final receiverId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Id of the user the media is sent to.
 
 try {
     final result = api_instance.uploadMedia(file, receiverId);
@@ -145,7 +145,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **file** | **MultipartFile**| The encrypted media blob (nonce || mac || ciphertext). Its field name must be file. | 
- **receiverId** | **int**| Id of the user the media is sent to. | 
+ **receiverId** | **String**| Id of the user the media is sent to. | 
 
 ### Return type
 

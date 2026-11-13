@@ -149,8 +149,8 @@ class UserApi {
   ///
   /// Parameters:
   ///
-  /// * [int] id (required):
-  Future<Response> getUserByIdWithHttpInfo(int id,) async {
+  /// * [String] id (required):
+  Future<Response> getUserByIdWithHttpInfo(String id,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/user';
 
@@ -181,8 +181,8 @@ class UserApi {
   ///
   /// Parameters:
   ///
-  /// * [int] id (required):
-  Future<ModelsUser?> getUserById(int id,) async {
+  /// * [String] id (required):
+  Future<ModelsUser?> getUserById(String id,) async {
     final response = await getUserByIdWithHttpInfo(id,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));

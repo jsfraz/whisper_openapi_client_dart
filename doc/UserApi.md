@@ -163,7 +163,7 @@ import 'package:whisper_openapi_client_dart/api.dart';
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
 final api_instance = UserApi();
-final id = 789; // int | 
+final id = id_example; // String | 
 
 try {
     final result = api_instance.getUserById(id);
@@ -177,7 +177,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**|  | 
+ **id** | **String**|  | 
 
 ### Return type
 

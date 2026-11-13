@@ -16,7 +16,7 @@ class DeleteUsersInput {
     this.ids = const [],
   });
 
-  List<int> ids;
+  List<String> ids;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is DeleteUsersInput &&
@@ -54,7 +54,7 @@ class DeleteUsersInput {
 
       return DeleteUsersInput(
         ids: json[r'ids'] is Iterable
-            ? (json[r'ids'] as Iterable).cast<int>().toList(growable: false)
+            ? (json[r'ids'] as Iterable).cast<String>().toList(growable: false)
             : const [],
       );
     }

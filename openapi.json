@@ -478,9 +478,9 @@
                     "format": "binary"
                   },
                   "receiverId": {
-                    "type": "integer",
+                    "type": "string",
                     "description": "Id of the user the media is sent to.",
-                    "format": "int64"
+                    "format": "uuid"
                   }
                 },
                 "required": [
@@ -744,8 +744,7 @@
             "in": "query",
             "required": true,
             "schema": {
-              "type": "integer",
-              "format": "int64"
+              "type": "string"
             }
           }
         ],
@@ -1228,8 +1227,7 @@
           "ids": {
             "type": "array",
             "items": {
-              "type": "integer",
-              "format": "int64"
+              "type": "string"
             }
           }
         },
@@ -1305,9 +1303,8 @@
             "example": false
           },
           "id": {
-            "type": "integer",
-            "format": "int64",
-            "example": 1
+            "type": "string",
+            "example": "2f8c1c1e-6c55-4d8f-9d3f-6f6b8a0c2d11"
           },
           "publicKey": {
             "type": "string",

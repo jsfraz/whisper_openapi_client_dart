@@ -9,7 +9,7 @@ import 'package:whisper_openapi_client_dart/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **admin** | **bool** |  | 
-**id** | **int** |  | 
+**id** | **String** |  | 
 **publicKey** | **String** |  | 
 **username** | **String** |  | 
 
