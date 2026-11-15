@@ -17,6 +17,13 @@ void main() {
   // final instance = UserApi();
 
   group('tests for UserApi', () {
+    // Delete my account
+    //
+    //Future deleteMe() async
+    test('test deleteMe', () async {
+      // TODO
+    });
+
     // Delete users
     //
     //Future deleteUsers({ DeleteUsersInput deleteUsersInput }) async
@@ -33,7 +40,7 @@ void main() {
 
     // Get user by ID
     //
-    //Future<ModelsUser> getUserById(int id) async
+    //Future<ModelsUser> getUserById(String id) async
     test('test getUserById', () async {
       // TODO
     });

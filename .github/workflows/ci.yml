@@ -45,6 +45,9 @@ jobs:
         # Warnings come from the generator itself, so only errors block.
         run: dart analyze --no-fatal-warnings
 
+      - name: Tests compile and pass
+        run: dart test
+
       - name: Secret scan
         uses: gitleaks/gitleaks-action@v3
         env:

@@ -24,3 +24,9 @@
 
 # Hand-maintained: documents CI and is not generated.
 README.md
+
+# Scaffolding this client does not use: CI lives in .github/workflows and the
+# package is published from the app repository.
+.travis.yml
+git_push.sh
+CHANGELOG.md
