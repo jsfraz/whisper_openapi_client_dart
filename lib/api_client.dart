@@ -190,6 +190,8 @@ class ApiClient {
           return CreateUserInput.fromJson(value);
         case 'DeleteUsersInput':
           return DeleteUsersInput.fromJson(value);
+        case 'ModelsAuthChallengeResponse':
+          return ModelsAuthChallengeResponse.fromJson(value);
         case 'ModelsAuthResponse':
           return ModelsAuthResponse.fromJson(value);
         case 'ModelsInvite':

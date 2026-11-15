@@ -89,6 +89,56 @@
         }
       }
     },
+    "/api/auth/challenge": {
+      "get": {
+        "tags": [
+          "Authentication"
+        ],
+        "summary": "Get a login challenge",
+        "description": "Returns a one-time value the client embeds in the RSA-signed login JWT. Every challenge is accepted once.",
+        "operationId": "AuthChallenge",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ModelsAuthChallengeResponse"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {}
+                },
+                "example": {
+                  "error": "..."
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {}
+                },
+                "example": {
+                  "error": "..."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/auth/refresh": {
       "post": {
         "tags": [
@@ -1233,6 +1283,22 @@
         },
         "required": [
           "ids"
+        ]
+      },
+      "ModelsAuthChallengeResponse": {
+        "type": "object",
+        "properties": {
+          "challenge": {
+            "type": "string"
+          },
+          "expiresIn": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "required": [
+          "challenge",
+          "expiresIn"
         ]
       },
       "ModelsAuthResponse": {

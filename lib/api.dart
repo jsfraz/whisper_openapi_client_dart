@@ -39,6 +39,7 @@ part 'model/auth_user_input.dart';
 part 'model/create_invite_input.dart';
 part 'model/create_user_input.dart';
 part 'model/delete_users_input.dart';
+part 'model/models_auth_challenge_response.dart';
 part 'model/models_auth_response.dart';
 part 'model/models_invite.dart';
 part 'model/models_media_upload_response.dart';
