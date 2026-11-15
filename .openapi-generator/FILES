@@ -9,6 +9,7 @@ doc/DeleteUsersInput.md
 doc/FirebaseApi.md
 doc/InviteApi.md
 doc/MediaApi.md
+doc/ModelsAuthChallengeResponse.md
 doc/ModelsAuthResponse.md
 doc/ModelsInvite.md
 doc/ModelsMediaUploadResponse.md
@@ -39,6 +40,7 @@ lib/model/auth_user_input.dart
 lib/model/create_invite_input.dart
 lib/model/create_user_input.dart
 lib/model/delete_users_input.dart
+lib/model/models_auth_challenge_response.dart
 lib/model/models_auth_response.dart
 lib/model/models_invite.dart
 lib/model/models_media_upload_response.dart

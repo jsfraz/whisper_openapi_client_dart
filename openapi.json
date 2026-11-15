@@ -1355,10 +1355,15 @@
           "accessToken": {
             "type": "string",
             "example": "JWT_ACCESS_TOKEN"
+          },
+          "refreshToken": {
+            "type": "string",
+            "example": "JWT_REFRESH_TOKEN"
           }
         },
         "required": [
-          "accessToken"
+          "accessToken",
+          "refreshToken"
         ]
       },
       "ModelsUser": {
