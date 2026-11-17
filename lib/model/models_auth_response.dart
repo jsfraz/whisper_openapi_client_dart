@@ -15,30 +15,36 @@ class ModelsAuthResponse {
   ModelsAuthResponse({
     required this.accessToken,
     required this.refreshToken,
+    required this.serverVersion,
   });
 
   String accessToken;
 
   String refreshToken;
 
+  String serverVersion;
+
   @override
   bool operator ==(Object other) => identical(this, other) || other is ModelsAuthResponse &&
     other.accessToken == accessToken &&
-    other.refreshToken == refreshToken;
+    other.refreshToken == refreshToken &&
+    other.serverVersion == serverVersion;
 
   @override
   int get hashCode =>
     // ignore: unnecessary_parenthesis
     (accessToken.hashCode) +
-    (refreshToken.hashCode);
+    (refreshToken.hashCode) +
+    (serverVersion.hashCode);
 
   @override
-  String toString() => 'ModelsAuthResponse[accessToken=$accessToken, refreshToken=$refreshToken]';
+  String toString() => 'ModelsAuthResponse[accessToken=$accessToken, refreshToken=$refreshToken, serverVersion=$serverVersion]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
       json[r'accessToken'] = this.accessToken;
       json[r'refreshToken'] = this.refreshToken;
+      json[r'serverVersion'] = this.serverVersion;
     return json;
   }
 
@@ -57,12 +63,15 @@ class ModelsAuthResponse {
         assert(json[r'accessToken'] != null, 'Required key "ModelsAuthResponse[accessToken]" has a null value in JSON.');
         assert(json.containsKey(r'refreshToken'), 'Required key "ModelsAuthResponse[refreshToken]" is missing from JSON.');
         assert(json[r'refreshToken'] != null, 'Required key "ModelsAuthResponse[refreshToken]" has a null value in JSON.');
+        assert(json.containsKey(r'serverVersion'), 'Required key "ModelsAuthResponse[serverVersion]" is missing from JSON.');
+        assert(json[r'serverVersion'] != null, 'Required key "ModelsAuthResponse[serverVersion]" has a null value in JSON.');
         return true;
       }());
 
       return ModelsAuthResponse(
         accessToken: mapValueOfType<String>(json, r'accessToken')!,
         refreshToken: mapValueOfType<String>(json, r'refreshToken')!,
+        serverVersion: mapValueOfType<String>(json, r'serverVersion')!,
       );
     }
     return null;
@@ -112,6 +121,7 @@ class ModelsAuthResponse {
   static const requiredKeys = <String>{
     'accessToken',
     'refreshToken',
+    'serverVersion',
   };
 }
 

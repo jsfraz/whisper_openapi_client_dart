@@ -194,20 +194,34 @@ class ApiClient {
           return ModelsAuthChallengeResponse.fromJson(value);
         case 'ModelsAuthResponse':
           return ModelsAuthResponse.fromJson(value);
+        case 'ModelsDevice':
+          return ModelsDevice.fromJson(value);
+        case 'ModelsDevicesResponse':
+          return ModelsDevicesResponse.fromJson(value);
+        case 'ModelsHistoryPage':
+          return ModelsHistoryPage.fromJson(value);
         case 'ModelsInvite':
           return ModelsInvite.fromJson(value);
         case 'ModelsMediaUploadResponse':
           return ModelsMediaUploadResponse.fromJson(value);
+        case 'ModelsPrivateMessage':
+          return ModelsPrivateMessage.fromJson(value);
         case 'ModelsRefreshResponse':
           return ModelsRefreshResponse.fromJson(value);
+        case 'ModelsRetentionResponse':
+          return ModelsRetentionResponse.fromJson(value);
         case 'ModelsUser':
           return ModelsUser.fromJson(value);
+        case 'ModelsVersionResponse':
+          return ModelsVersionResponse.fromJson(value);
         case 'ModelsWsAuthResponse':
           return ModelsWsAuthResponse.fromJson(value);
         case 'RefreshUserAccessTokenInput':
           return RefreshUserAccessTokenInput.fromJson(value);
         case 'SetFirebaseTokenInput':
           return SetFirebaseTokenInput.fromJson(value);
+        case 'SetRetentionInput':
+          return SetRetentionInput.fromJson(value);
         default:
           dynamic match;
           if (value is List && (match = _regList.firstMatch(targetType)?.group(1)) != null) {

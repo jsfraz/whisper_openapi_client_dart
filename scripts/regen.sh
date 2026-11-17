@@ -19,7 +19,7 @@ java -jar "$JAR" generate -i "$SPEC" -g dart -c open-generator-config.yaml -t te
 # or doc/ that it no longer produces is stale, except hand-written companions.
 git ls-files 'lib/**' 'doc/*' | while read -r f; do
   case "$f" in
-    lib/media_download.dart) continue ;;
+    lib/media_download.dart|lib/version.dart) continue ;;
   esac
   grep -qxF "$f" .openapi-generator/FILES || rm -f "$f"
 done

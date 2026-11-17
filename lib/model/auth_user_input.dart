@@ -13,25 +13,43 @@ part of openapi.api;
 class AuthUserInput {
   /// Returns a new [AuthUserInput] instance.
   AuthUserInput({
+    required this.deviceId,
+    required this.label,
+    required this.platform,
     required this.token,
   });
+
+  String deviceId;
+
+  String label;
+
+  String platform;
 
   String token;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is AuthUserInput &&
+    other.deviceId == deviceId &&
+    other.label == label &&
+    other.platform == platform &&
     other.token == token;
 
   @override
   int get hashCode =>
     // ignore: unnecessary_parenthesis
+    (deviceId.hashCode) +
+    (label.hashCode) +
+    (platform.hashCode) +
     (token.hashCode);
 
   @override
-  String toString() => 'AuthUserInput[token=$token]';
+  String toString() => 'AuthUserInput[deviceId=$deviceId, label=$label, platform=$platform, token=$token]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
+      json[r'deviceId'] = this.deviceId;
+      json[r'label'] = this.label;
+      json[r'platform'] = this.platform;
       json[r'token'] = this.token;
     return json;
   }
@@ -47,12 +65,21 @@ class AuthUserInput {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
+        assert(json.containsKey(r'deviceId'), 'Required key "AuthUserInput[deviceId]" is missing from JSON.');
+        assert(json[r'deviceId'] != null, 'Required key "AuthUserInput[deviceId]" has a null value in JSON.');
+        assert(json.containsKey(r'label'), 'Required key "AuthUserInput[label]" is missing from JSON.');
+        assert(json[r'label'] != null, 'Required key "AuthUserInput[label]" has a null value in JSON.');
+        assert(json.containsKey(r'platform'), 'Required key "AuthUserInput[platform]" is missing from JSON.');
+        assert(json[r'platform'] != null, 'Required key "AuthUserInput[platform]" has a null value in JSON.');
         assert(json.containsKey(r'token'), 'Required key "AuthUserInput[token]" is missing from JSON.');
         assert(json[r'token'] != null, 'Required key "AuthUserInput[token]" has a null value in JSON.');
         return true;
       }());
 
       return AuthUserInput(
+        deviceId: mapValueOfType<String>(json, r'deviceId')!,
+        label: mapValueOfType<String>(json, r'label')!,
+        platform: mapValueOfType<String>(json, r'platform')!,
         token: mapValueOfType<String>(json, r'token')!,
       );
     }
@@ -101,6 +128,9 @@ class AuthUserInput {
 
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
+    'deviceId',
+    'label',
+    'platform',
     'token',
   };
 }

@@ -16,6 +16,7 @@ class ModelsUser {
     required this.admin,
     required this.id,
     required this.publicKey,
+    required this.retentionDays,
     required this.username,
   });
 
@@ -25,6 +26,8 @@ class ModelsUser {
 
   String publicKey;
 
+  int retentionDays;
+
   String username;
 
   @override
@@ -32,6 +35,7 @@ class ModelsUser {
     other.admin == admin &&
     other.id == id &&
     other.publicKey == publicKey &&
+    other.retentionDays == retentionDays &&
     other.username == username;
 
   @override
@@ -40,16 +44,18 @@ class ModelsUser {
     (admin.hashCode) +
     (id.hashCode) +
     (publicKey.hashCode) +
+    (retentionDays.hashCode) +
     (username.hashCode);
 
   @override
-  String toString() => 'ModelsUser[admin=$admin, id=$id, publicKey=$publicKey, username=$username]';
+  String toString() => 'ModelsUser[admin=$admin, id=$id, publicKey=$publicKey, retentionDays=$retentionDays, username=$username]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
       json[r'admin'] = this.admin;
       json[r'id'] = this.id;
       json[r'publicKey'] = this.publicKey;
+      json[r'retentionDays'] = this.retentionDays;
       json[r'username'] = this.username;
     return json;
   }
@@ -71,6 +77,8 @@ class ModelsUser {
         assert(json[r'id'] != null, 'Required key "ModelsUser[id]" has a null value in JSON.');
         assert(json.containsKey(r'publicKey'), 'Required key "ModelsUser[publicKey]" is missing from JSON.');
         assert(json[r'publicKey'] != null, 'Required key "ModelsUser[publicKey]" has a null value in JSON.');
+        assert(json.containsKey(r'retentionDays'), 'Required key "ModelsUser[retentionDays]" is missing from JSON.');
+        assert(json[r'retentionDays'] != null, 'Required key "ModelsUser[retentionDays]" has a null value in JSON.');
         assert(json.containsKey(r'username'), 'Required key "ModelsUser[username]" is missing from JSON.');
         assert(json[r'username'] != null, 'Required key "ModelsUser[username]" has a null value in JSON.');
         return true;
@@ -80,6 +88,7 @@ class ModelsUser {
         admin: mapValueOfType<bool>(json, r'admin')!,
         id: mapValueOfType<String>(json, r'id')!,
         publicKey: mapValueOfType<String>(json, r'publicKey')!,
+        retentionDays: mapValueOfType<int>(json, r'retentionDays')!,
         username: mapValueOfType<String>(json, r'username')!,
       );
     }
@@ -131,6 +140,7 @@ class ModelsUser {
     'admin',
     'id',
     'publicKey',
+    'retentionDays',
     'username',
   };
 }

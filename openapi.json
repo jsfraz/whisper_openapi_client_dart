@@ -781,6 +781,106 @@
         ]
       }
     },
+    "/api/messages": {
+      "get": {
+        "tags": [
+          "Messages"
+        ],
+        "summary": "Get message history",
+        "description": "One page of a conversation from the ciphertext archive, newest first. The server never sees the plaintext.",
+        "operationId": "GetHistory",
+        "parameters": [
+          {
+            "name": "before",
+            "in": "query",
+            "description": "Opaque cursor from the previous page",
+            "schema": {
+              "type": "string",
+              "description": "Opaque cursor from the previous page"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Page size, 1-200 (default 50)",
+            "schema": {
+              "type": "integer",
+              "description": "Page size, 1-200 (default 50)",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "peerId",
+            "in": "query",
+            "description": "The other participant of the conversation",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The other participant of the conversation"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ModelsHistoryPage"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {}
+                },
+                "example": {
+                  "error": "..."
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {}
+                },
+                "example": {
+                  "error": "..."
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {}
+                },
+                "example": {
+                  "error": "..."
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
     "/api/user": {
       "get": {
         "tags": [
@@ -1012,6 +1112,233 @@
         ]
       }
     },
+    "/api/user/devices": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Get devices",
+        "description": "Lists the devices signed into the account. The requesting device is flagged.",
+        "operationId": "GetDevices",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ModelsDevicesResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {}
+                },
+                "example": {
+                  "error": "..."
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {}
+                },
+                "example": {
+                  "error": "..."
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/api/user/devices/{id}/revoke": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Revoke a device",
+        "description": "Locks a device out immediately: it cannot log in, renew its token, call the API or keep its WebSocket.",
+        "operationId": "RevokeDevice",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {}
+                },
+                "example": {
+                  "error": "..."
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {}
+                },
+                "example": {
+                  "error": "..."
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {}
+                },
+                "example": {
+                  "error": "..."
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {}
+                },
+                "example": {
+                  "error": "..."
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/api/user/devices/{id}/unrevoke": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Unrevoke a device",
+        "description": "Lets a revoked device sign in again. Only a live device of the same account may do this.",
+        "operationId": "UnrevokeDevice",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {}
+                },
+                "example": {
+                  "error": "..."
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {}
+                },
+                "example": {
+                  "error": "..."
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {}
+                },
+                "example": {
+                  "error": "..."
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {}
+                },
+                "example": {
+                  "error": "..."
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
     "/api/user/me": {
       "delete": {
         "tags": [
@@ -1022,6 +1349,130 @@
         "responses": {
           "204": {
             "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {}
+                },
+                "example": {
+                  "error": "..."
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {}
+                },
+                "example": {
+                  "error": "..."
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {}
+                },
+                "example": {
+                  "error": "..."
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/api/user/retention": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Get archive retention",
+        "description": "Returns how long the server keeps the ciphertext archive of this account.",
+        "operationId": "GetRetention",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ModelsRetentionResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {}
+                },
+                "example": {
+                  "error": "..."
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {}
+                },
+                "example": {
+                  "error": "..."
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Set archive retention",
+        "description": "The shorter retention of both participants wins, because both accounts can read a message.",
+        "operationId": "SetRetention",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SetRetentionInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
           },
           "400": {
             "description": "Bad Request",
@@ -1154,6 +1605,42 @@
         ]
       }
     },
+    "/api/version": {
+      "get": {
+        "tags": [
+          "Version"
+        ],
+        "summary": "Get server version",
+        "description": "Returns the server build, the API version and the oldest client it accepts.",
+        "operationId": "GetVersion",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ModelsVersionResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {}
+                },
+                "example": {
+                  "error": "..."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/wsauth": {
       "post": {
         "tags": [
@@ -1223,12 +1710,30 @@
       "AuthUserInput": {
         "type": "object",
         "properties": {
+          "deviceId": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string",
+            "example": "Pixel 8",
+            "maxLength": 64,
+            "minLength": 1
+          },
+          "platform": {
+            "type": "string",
+            "example": "android",
+            "maxLength": 32,
+            "minLength": 1
+          },
           "token": {
             "type": "string",
             "example": "JWT_TOKEN"
           }
         },
         "required": [
+          "deviceId",
+          "label",
+          "platform",
           "token"
         ]
       },
@@ -1311,11 +1816,93 @@
           "refreshToken": {
             "type": "string",
             "example": "JWT_REFRESH_TOKEN"
+          },
+          "serverVersion": {
+            "type": "string",
+            "example": "0.1.0"
           }
         },
         "required": [
           "accessToken",
-          "refreshToken"
+          "refreshToken",
+          "serverVersion"
+        ]
+      },
+      "ModelsDevice": {
+        "type": "object",
+        "properties": {
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "current": {
+            "type": "boolean"
+          },
+          "id": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string",
+            "example": "Pixel 8"
+          },
+          "lastSeenAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "platform": {
+            "type": "string",
+            "example": "android"
+          },
+          "revokedAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "required": [
+          "createdAt",
+          "id",
+          "label",
+          "lastSeenAt",
+          "platform"
+        ]
+      },
+      "ModelsDevicesResponse": {
+        "type": "object",
+        "properties": {
+          "devices": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ModelsDevice"
+            }
+          }
+        },
+        "required": [
+          "devices"
+        ]
+      },
+      "ModelsHistoryPage": {
+        "type": "object",
+        "properties": {
+          "messages": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ModelsPrivateMessage"
+            }
+          },
+          "nextCursor": {
+            "type": "string"
+          },
+          "peers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ModelsUser"
+            }
+          }
+        },
+        "required": [
+          "messages",
+          "peers"
         ]
       },
       "ModelsInvite": {
@@ -1349,6 +1936,76 @@
           "id"
         ]
       },
+      "ModelsPrivateMessage": {
+        "type": "object",
+        "properties": {
+          "content": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          "deletedAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "id": {
+            "type": "string"
+          },
+          "key": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          "mac": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          "nonce": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          "peerId": {
+            "type": "string"
+          },
+          "recipientOnline": {
+            "type": "boolean"
+          },
+          "senderId": {
+            "type": "string"
+          },
+          "sentAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "seq": {
+            "type": "integer",
+            "format": "int64"
+          }
+        },
+        "required": [
+          "content",
+          "id",
+          "key",
+          "mac",
+          "nonce",
+          "peerId",
+          "recipientOnline",
+          "senderId",
+          "sentAt",
+          "seq"
+        ]
+      },
       "ModelsRefreshResponse": {
         "type": "object",
         "properties": {
@@ -1366,6 +2023,19 @@
           "refreshToken"
         ]
       },
+      "ModelsRetentionResponse": {
+        "type": "object",
+        "properties": {
+          "days": {
+            "type": "integer",
+            "format": "int32",
+            "example": 30
+          }
+        },
+        "required": [
+          "days"
+        ]
+      },
       "ModelsUser": {
         "type": "object",
         "properties": {
@@ -1381,6 +2051,11 @@
             "type": "string",
             "example": "RSA_PUBLIC_KEY_PEM"
           },
+          "retentionDays": {
+            "type": "integer",
+            "format": "int32",
+            "example": 30
+          },
           "username": {
             "type": "string",
             "example": "ex4ample"
@@ -1390,7 +2065,35 @@
           "admin",
           "id",
           "publicKey",
+          "retentionDays",
           "username"
+        ]
+      },
+      "ModelsVersionResponse": {
+        "type": "object",
+        "properties": {
+          "apiVersion": {
+            "type": "string",
+            "example": "1"
+          },
+          "minClientVersion": {
+            "type": "string",
+            "example": "0.1.0"
+          },
+          "name": {
+            "type": "string",
+            "example": "whisper-server"
+          },
+          "version": {
+            "type": "string",
+            "example": "0.1.0"
+          }
+        },
+        "required": [
+          "apiVersion",
+          "minClientVersion",
+          "name",
+          "version"
         ]
       },
       "ModelsWsAuthResponse": {
@@ -1427,6 +2130,19 @@
         "required": [
           "token"
         ]
+      },
+      "SetRetentionInput": {
+        "type": "object",
+        "properties": {
+          "days": {
+            "type": "integer",
+            "format": "int32",
+            "example": 30
+          }
+        },
+        "required": [
+          "days"
+        ]
       }
     },
     "securitySchemes": {
@@ -1456,8 +2172,16 @@
       "description": "Operations associated with encrypted media files."
     },
     {
+      "name": "Messages",
+      "description": "Ciphertext history of a conversation."
+    },
+    {
       "name": "User",
       "description": "Operations associated with a user account."
+    },
+    {
+      "name": "Version",
+      "description": "Server build and client compatibility."
     },
     {
       "name": "WebSocket authentication",
