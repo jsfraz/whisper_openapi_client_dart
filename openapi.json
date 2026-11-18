@@ -879,6 +879,298 @@
             "bearerAuth": []
           }
         ]
+      },
+      "delete": {
+        "tags": [
+          "Messages"
+        ],
+        "summary": "Delete a conversation for me",
+        "description": "Deletes a conversation for the calling account on every device: everything sent at or before the cut stops being visible to it. The other participant keeps the archive. Idempotent.",
+        "operationId": "ClearConversation",
+        "parameters": [
+          {
+            "name": "before",
+            "in": "query",
+            "description": "RFC3339 instant to delete up to (default: now)",
+            "schema": {
+              "type": "string",
+              "description": "RFC3339 instant to delete up to (default: now)"
+            }
+          },
+          {
+            "name": "peerId",
+            "in": "query",
+            "description": "The other participant of the conversation",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The other participant of the conversation"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ModelsClearConversationResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {}
+                },
+                "example": {
+                  "error": "..."
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {}
+                },
+                "example": {
+                  "error": "..."
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {}
+                },
+                "example": {
+                  "error": "..."
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/api/messages/{id}": {
+      "delete": {
+        "tags": [
+          "Messages"
+        ],
+        "summary": "Delete my message for everyone",
+        "description": "Erases the ciphertext of a message the caller sent and leaves a tombstone, so the other side learns about it on the next sync. Idempotent.",
+        "operationId": "DeleteMessage",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The message id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The message id"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {}
+                },
+                "example": {
+                  "error": "..."
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {}
+                },
+                "example": {
+                  "error": "..."
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {}
+                },
+                "example": {
+                  "error": "..."
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {}
+                },
+                "example": {
+                  "error": "..."
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {}
+                },
+                "example": {
+                  "error": "..."
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/api/messages/{id}/hide": {
+      "post": {
+        "tags": [
+          "Messages"
+        ],
+        "summary": "Hide a message for me",
+        "description": "Removes one message from the calling account on every device. The other participant keeps it. Idempotent.",
+        "operationId": "HideMessage",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The message id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The message id"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {}
+                },
+                "example": {
+                  "error": "..."
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {}
+                },
+                "example": {
+                  "error": "..."
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {}
+                },
+                "example": {
+                  "error": "..."
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {}
+                },
+                "example": {
+                  "error": "..."
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {}
+                },
+                "example": {
+                  "error": "..."
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/api/user": {
@@ -1828,6 +2120,18 @@
           "serverVersion"
         ]
       },
+      "ModelsClearConversationResponse": {
+        "type": "object",
+        "properties": {
+          "clearedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "clearedAt"
+        ]
+      },
       "ModelsDevice": {
         "type": "object",
         "properties": {
@@ -1884,6 +2188,11 @@
       "ModelsHistoryPage": {
         "type": "object",
         "properties": {
+          "clearedAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
           "messages": {
             "type": "array",
             "items": {

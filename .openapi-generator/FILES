@@ -11,6 +11,7 @@ doc/MediaApi.md
 doc/MessagesApi.md
 doc/ModelsAuthChallengeResponse.md
 doc/ModelsAuthResponse.md
+doc/ModelsClearConversationResponse.md
 doc/ModelsDevice.md
 doc/ModelsDevicesResponse.md
 doc/ModelsHistoryPage.md
@@ -51,6 +52,7 @@ lib/model/create_user_input.dart
 lib/model/delete_users_input.dart
 lib/model/models_auth_challenge_response.dart
 lib/model/models_auth_response.dart
+lib/model/models_clear_conversation_response.dart
 lib/model/models_device.dart
 lib/model/models_devices_response.dart
 lib/model/models_history_page.dart
@@ -66,3 +68,4 @@ lib/model/refresh_user_access_token_input.dart
 lib/model/set_firebase_token_input.dart
 lib/model/set_retention_input.dart
 pubspec.yaml
+test/models_clear_conversation_response_test.dart

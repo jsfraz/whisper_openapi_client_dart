@@ -194,6 +194,8 @@ class ApiClient {
           return ModelsAuthChallengeResponse.fromJson(value);
         case 'ModelsAuthResponse':
           return ModelsAuthResponse.fromJson(value);
+        case 'ModelsClearConversationResponse':
+          return ModelsClearConversationResponse.fromJson(value);
         case 'ModelsDevice':
           return ModelsDevice.fromJson(value);
         case 'ModelsDevicesResponse':

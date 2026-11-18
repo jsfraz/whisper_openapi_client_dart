@@ -13,10 +13,13 @@ part of openapi.api;
 class ModelsHistoryPage {
   /// Returns a new [ModelsHistoryPage] instance.
   ModelsHistoryPage({
+    this.clearedAt,
     this.messages = const [],
     this.nextCursor,
     this.peers = const [],
   });
+
+  DateTime? clearedAt;
 
   List<ModelsPrivateMessage> messages;
 
@@ -32,6 +35,7 @@ class ModelsHistoryPage {
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is ModelsHistoryPage &&
+    other.clearedAt == clearedAt &&
     _deepEquality.equals(other.messages, messages) &&
     other.nextCursor == nextCursor &&
     _deepEquality.equals(other.peers, peers);
@@ -39,15 +43,21 @@ class ModelsHistoryPage {
   @override
   int get hashCode =>
     // ignore: unnecessary_parenthesis
+    (clearedAt == null ? 0 : clearedAt!.hashCode) +
     (messages.hashCode) +
     (nextCursor == null ? 0 : nextCursor!.hashCode) +
     (peers.hashCode);
 
   @override
-  String toString() => 'ModelsHistoryPage[messages=$messages, nextCursor=$nextCursor, peers=$peers]';
+  String toString() => 'ModelsHistoryPage[clearedAt=$clearedAt, messages=$messages, nextCursor=$nextCursor, peers=$peers]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
+    if (this.clearedAt != null) {
+      json[r'clearedAt'] = this.clearedAt!.toUtc().toIso8601String();
+    } else {
+      json[r'clearedAt'] = null;
+    }
       json[r'messages'] = this.messages;
     if (this.nextCursor != null) {
       json[r'nextCursor'] = this.nextCursor;
@@ -77,6 +87,7 @@ class ModelsHistoryPage {
       }());
 
       return ModelsHistoryPage(
+        clearedAt: mapDateTime(json, r'clearedAt', r''),
         messages: ModelsPrivateMessage.listFromJson(json[r'messages']),
         nextCursor: mapValueOfType<String>(json, r'nextCursor'),
         peers: ModelsUser.listFromJson(json[r'peers']),

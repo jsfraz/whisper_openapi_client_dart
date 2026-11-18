@@ -43,6 +43,7 @@ part 'model/create_user_input.dart';
 part 'model/delete_users_input.dart';
 part 'model/models_auth_challenge_response.dart';
 part 'model/models_auth_response.dart';
+part 'model/models_clear_conversation_response.dart';
 part 'model/models_device.dart';
 part 'model/models_devices_response.dart';
 part 'model/models_history_page.dart';

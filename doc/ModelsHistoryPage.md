@@ -8,6 +8,7 @@ import 'package:whisper_openapi_client_dart/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**clearedAt** | [**DateTime**](DateTime.md) |  | [optional] 
 **messages** | [**List<ModelsPrivateMessage>**](ModelsPrivateMessage.md) |  | [default to const []]
 **nextCursor** | **String** |  | [optional] 
 **peers** | [**List<ModelsUser>**](ModelsUser.md) |  | [default to const []]
