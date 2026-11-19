@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **content** | **List<int>** |  | [default to const []]
 **deletedAt** | [**DateTime**](DateTime.md) |  | [optional] 
+**editedAt** | [**DateTime**](DateTime.md) |  | [optional] 
 **id** | **String** |  | 
 **key** | **List<int>** |  | [default to const []]
 **mac** | **List<int>** |  | [default to const []]

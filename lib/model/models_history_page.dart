@@ -17,6 +17,7 @@ class ModelsHistoryPage {
     this.messages = const [],
     this.nextCursor,
     this.peers = const [],
+    this.pins = const [],
   });
 
   DateTime? clearedAt;
@@ -33,12 +34,15 @@ class ModelsHistoryPage {
 
   List<ModelsUser> peers;
 
+  List<ModelsPinnedMessage> pins;
+
   @override
   bool operator ==(Object other) => identical(this, other) || other is ModelsHistoryPage &&
     other.clearedAt == clearedAt &&
     _deepEquality.equals(other.messages, messages) &&
     other.nextCursor == nextCursor &&
-    _deepEquality.equals(other.peers, peers);
+    _deepEquality.equals(other.peers, peers) &&
+    _deepEquality.equals(other.pins, pins);
 
   @override
   int get hashCode =>
@@ -46,10 +50,11 @@ class ModelsHistoryPage {
     (clearedAt == null ? 0 : clearedAt!.hashCode) +
     (messages.hashCode) +
     (nextCursor == null ? 0 : nextCursor!.hashCode) +
-    (peers.hashCode);
+    (peers.hashCode) +
+    (pins.hashCode);
 
   @override
-  String toString() => 'ModelsHistoryPage[clearedAt=$clearedAt, messages=$messages, nextCursor=$nextCursor, peers=$peers]';
+  String toString() => 'ModelsHistoryPage[clearedAt=$clearedAt, messages=$messages, nextCursor=$nextCursor, peers=$peers, pins=$pins]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -65,6 +70,7 @@ class ModelsHistoryPage {
       json[r'nextCursor'] = null;
     }
       json[r'peers'] = this.peers;
+      json[r'pins'] = this.pins;
     return json;
   }
 
@@ -83,6 +89,8 @@ class ModelsHistoryPage {
         assert(json[r'messages'] != null, 'Required key "ModelsHistoryPage[messages]" has a null value in JSON.');
         assert(json.containsKey(r'peers'), 'Required key "ModelsHistoryPage[peers]" is missing from JSON.');
         assert(json[r'peers'] != null, 'Required key "ModelsHistoryPage[peers]" has a null value in JSON.');
+        assert(json.containsKey(r'pins'), 'Required key "ModelsHistoryPage[pins]" is missing from JSON.');
+        assert(json[r'pins'] != null, 'Required key "ModelsHistoryPage[pins]" has a null value in JSON.');
         return true;
       }());
 
@@ -91,6 +99,7 @@ class ModelsHistoryPage {
         messages: ModelsPrivateMessage.listFromJson(json[r'messages']),
         nextCursor: mapValueOfType<String>(json, r'nextCursor'),
         peers: ModelsUser.listFromJson(json[r'peers']),
+        pins: ModelsPinnedMessage.listFromJson(json[r'pins']),
       );
     }
     return null;
@@ -140,6 +149,7 @@ class ModelsHistoryPage {
   static const requiredKeys = <String>{
     'messages',
     'peers',
+    'pins',
   };
 }
 

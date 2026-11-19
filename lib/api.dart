@@ -41,14 +41,17 @@ part 'model/auth_user_input.dart';
 part 'model/create_invite_input.dart';
 part 'model/create_user_input.dart';
 part 'model/delete_users_input.dart';
+part 'model/edit_message_input.dart';
 part 'model/models_auth_challenge_response.dart';
 part 'model/models_auth_response.dart';
 part 'model/models_clear_conversation_response.dart';
 part 'model/models_device.dart';
 part 'model/models_devices_response.dart';
+part 'model/models_edit_message_response.dart';
 part 'model/models_history_page.dart';
 part 'model/models_invite.dart';
 part 'model/models_media_upload_response.dart';
+part 'model/models_pinned_message.dart';
 part 'model/models_private_message.dart';
 part 'model/models_refresh_response.dart';
 part 'model/models_retention_response.dart';
@@ -57,6 +60,7 @@ part 'model/models_version_response.dart';
 part 'model/models_ws_auth_response.dart';
 part 'model/refresh_user_access_token_input.dart';
 part 'model/set_firebase_token_input.dart';
+part 'model/set_reaction_input.dart';
 part 'model/set_retention_input.dart';
 
 

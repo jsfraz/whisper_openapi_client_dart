@@ -87,7 +87,7 @@ class MessagesApi {
 
   /// Delete my message for everyone
   ///
-  /// Erases the ciphertext of a message the caller sent and leaves a tombstone, so the other side learns about it on the next sync. Idempotent.
+  /// Erases the ciphertext of a message the caller sent, unpins it and logs the tombstone, so both sides learn about it. Idempotent.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -123,7 +123,7 @@ class MessagesApi {
 
   /// Delete my message for everyone
   ///
-  /// Erases the ciphertext of a message the caller sent and leaves a tombstone, so the other side learns about it on the next sync. Idempotent.
+  /// Erases the ciphertext of a message the caller sent, unpins it and logs the tombstone, so both sides learn about it. Idempotent.
   ///
   /// Parameters:
   ///
@@ -134,6 +134,69 @@ class MessagesApi {
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
+  }
+
+  /// Edit my message
+  ///
+  /// Replaces the ciphertext of a message the caller sent with a new version and stamps the edit. Both sides learn about it through sync and a live edit frame. The server never sees the plaintext.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] id (required):
+  ///   The message id
+  ///
+  /// * [EditMessageInput] editMessageInput:
+  Future<Response> editMessageWithHttpInfo(String id, { EditMessageInput? editMessageInput, }) async {
+    // ignore: prefer_const_declarations
+    final path = r'/api/messages/{id}'
+      .replaceAll('{id}', id);
+
+    // ignore: prefer_final_locals
+    Object? postBody = editMessageInput;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>['application/json'];
+
+
+    return apiClient.invokeAPI(
+      path,
+      'PATCH',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Edit my message
+  ///
+  /// Replaces the ciphertext of a message the caller sent with a new version and stamps the edit. Both sides learn about it through sync and a live edit frame. The server never sees the plaintext.
+  ///
+  /// Parameters:
+  ///
+  /// * [String] id (required):
+  ///   The message id
+  ///
+  /// * [EditMessageInput] editMessageInput:
+  Future<ModelsEditMessageResponse?> editMessage(String id, { EditMessageInput? editMessageInput, }) async {
+    final response = await editMessageWithHttpInfo(id,  editMessageInput: editMessageInput, );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'ModelsEditMessageResponse',) as ModelsEditMessageResponse;
+    
+    }
+    return null;
   }
 
   /// Get message history
@@ -260,6 +323,214 @@ class MessagesApi {
   ///   The message id
   Future<void> hideMessage(String id,) async {
     final response = await hideMessageWithHttpInfo(id,);
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+  }
+
+  /// Pin a message
+  ///
+  /// Pins a message of the chat for both participants. Anyone in the conversation may pin. Idempotent.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] id (required):
+  ///   The message id
+  Future<Response> pinMessageWithHttpInfo(String id,) async {
+    // ignore: prefer_const_declarations
+    final path = r'/api/messages/{id}/pin'
+      .replaceAll('{id}', id);
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>[];
+
+
+    return apiClient.invokeAPI(
+      path,
+      'PUT',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Pin a message
+  ///
+  /// Pins a message of the chat for both participants. Anyone in the conversation may pin. Idempotent.
+  ///
+  /// Parameters:
+  ///
+  /// * [String] id (required):
+  ///   The message id
+  Future<void> pinMessage(String id,) async {
+    final response = await pinMessageWithHttpInfo(id,);
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+  }
+
+  /// Remove my reaction
+  ///
+  /// Clears the caller's reaction on a message. Idempotent.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] id (required):
+  ///   The message id
+  Future<Response> removeReactionWithHttpInfo(String id,) async {
+    // ignore: prefer_const_declarations
+    final path = r'/api/messages/{id}/reaction'
+      .replaceAll('{id}', id);
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>[];
+
+
+    return apiClient.invokeAPI(
+      path,
+      'DELETE',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Remove my reaction
+  ///
+  /// Clears the caller's reaction on a message. Idempotent.
+  ///
+  /// Parameters:
+  ///
+  /// * [String] id (required):
+  ///   The message id
+  Future<void> removeReaction(String id,) async {
+    final response = await removeReactionWithHttpInfo(id,);
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+  }
+
+  /// React to a message
+  ///
+  /// Stores the caller's encrypted reaction on a message. A later reaction replaces it; both sides learn about it through sync and a live reaction frame.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] id (required):
+  ///   The message id
+  ///
+  /// * [SetReactionInput] setReactionInput:
+  Future<Response> setReactionWithHttpInfo(String id, { SetReactionInput? setReactionInput, }) async {
+    // ignore: prefer_const_declarations
+    final path = r'/api/messages/{id}/reaction'
+      .replaceAll('{id}', id);
+
+    // ignore: prefer_final_locals
+    Object? postBody = setReactionInput;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>['application/json'];
+
+
+    return apiClient.invokeAPI(
+      path,
+      'PUT',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// React to a message
+  ///
+  /// Stores the caller's encrypted reaction on a message. A later reaction replaces it; both sides learn about it through sync and a live reaction frame.
+  ///
+  /// Parameters:
+  ///
+  /// * [String] id (required):
+  ///   The message id
+  ///
+  /// * [SetReactionInput] setReactionInput:
+  Future<void> setReaction(String id, { SetReactionInput? setReactionInput, }) async {
+    final response = await setReactionWithHttpInfo(id,  setReactionInput: setReactionInput, );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+  }
+
+  /// Unpin a message
+  ///
+  /// Removes a pin for both participants. Idempotent.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] id (required):
+  ///   The message id
+  Future<Response> unpinMessageWithHttpInfo(String id,) async {
+    // ignore: prefer_const_declarations
+    final path = r'/api/messages/{id}/pin'
+      .replaceAll('{id}', id);
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>[];
+
+
+    return apiClient.invokeAPI(
+      path,
+      'DELETE',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Unpin a message
+  ///
+  /// Removes a pin for both participants. Idempotent.
+  ///
+  /// Parameters:
+  ///
+  /// * [String] id (required):
+  ///   The message id
+  Future<void> unpinMessage(String id,) async {
+    final response = await unpinMessageWithHttpInfo(id,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

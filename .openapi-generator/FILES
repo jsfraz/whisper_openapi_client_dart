@@ -5,6 +5,7 @@ doc/AuthenticationApi.md
 doc/CreateInviteInput.md
 doc/CreateUserInput.md
 doc/DeleteUsersInput.md
+doc/EditMessageInput.md
 doc/FirebaseApi.md
 doc/InviteApi.md
 doc/MediaApi.md
@@ -14,9 +15,11 @@ doc/ModelsAuthResponse.md
 doc/ModelsClearConversationResponse.md
 doc/ModelsDevice.md
 doc/ModelsDevicesResponse.md
+doc/ModelsEditMessageResponse.md
 doc/ModelsHistoryPage.md
 doc/ModelsInvite.md
 doc/ModelsMediaUploadResponse.md
+doc/ModelsPinnedMessage.md
 doc/ModelsPrivateMessage.md
 doc/ModelsRefreshResponse.md
 doc/ModelsRetentionResponse.md
@@ -25,6 +28,7 @@ doc/ModelsVersionResponse.md
 doc/ModelsWsAuthResponse.md
 doc/RefreshUserAccessTokenInput.md
 doc/SetFirebaseTokenInput.md
+doc/SetReactionInput.md
 doc/SetRetentionInput.md
 doc/UserApi.md
 doc/VersionApi.md
@@ -50,14 +54,17 @@ lib/model/auth_user_input.dart
 lib/model/create_invite_input.dart
 lib/model/create_user_input.dart
 lib/model/delete_users_input.dart
+lib/model/edit_message_input.dart
 lib/model/models_auth_challenge_response.dart
 lib/model/models_auth_response.dart
 lib/model/models_clear_conversation_response.dart
 lib/model/models_device.dart
 lib/model/models_devices_response.dart
+lib/model/models_edit_message_response.dart
 lib/model/models_history_page.dart
 lib/model/models_invite.dart
 lib/model/models_media_upload_response.dart
+lib/model/models_pinned_message.dart
 lib/model/models_private_message.dart
 lib/model/models_refresh_response.dart
 lib/model/models_retention_response.dart
@@ -66,6 +73,6 @@ lib/model/models_version_response.dart
 lib/model/models_ws_auth_response.dart
 lib/model/refresh_user_access_token_input.dart
 lib/model/set_firebase_token_input.dart
+lib/model/set_reaction_input.dart
 lib/model/set_retention_input.dart
 pubspec.yaml
-test/models_clear_conversation_response_test.dart

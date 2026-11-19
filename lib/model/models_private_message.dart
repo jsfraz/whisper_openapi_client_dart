@@ -15,6 +15,7 @@ class ModelsPrivateMessage {
   ModelsPrivateMessage({
     this.content = const [],
     this.deletedAt,
+    this.editedAt,
     required this.id,
     this.key = const [],
     this.mac = const [],
@@ -29,6 +30,8 @@ class ModelsPrivateMessage {
   List<int> content;
 
   DateTime? deletedAt;
+
+  DateTime? editedAt;
 
   String id;
 
@@ -52,6 +55,7 @@ class ModelsPrivateMessage {
   bool operator ==(Object other) => identical(this, other) || other is ModelsPrivateMessage &&
     _deepEquality.equals(other.content, content) &&
     other.deletedAt == deletedAt &&
+    other.editedAt == editedAt &&
     other.id == id &&
     _deepEquality.equals(other.key, key) &&
     _deepEquality.equals(other.mac, mac) &&
@@ -67,6 +71,7 @@ class ModelsPrivateMessage {
     // ignore: unnecessary_parenthesis
     (content.hashCode) +
     (deletedAt == null ? 0 : deletedAt!.hashCode) +
+    (editedAt == null ? 0 : editedAt!.hashCode) +
     (id.hashCode) +
     (key.hashCode) +
     (mac.hashCode) +
@@ -78,7 +83,7 @@ class ModelsPrivateMessage {
     (seq.hashCode);
 
   @override
-  String toString() => 'ModelsPrivateMessage[content=$content, deletedAt=$deletedAt, id=$id, key=$key, mac=$mac, nonce=$nonce, peerId=$peerId, recipientOnline=$recipientOnline, senderId=$senderId, sentAt=$sentAt, seq=$seq]';
+  String toString() => 'ModelsPrivateMessage[content=$content, deletedAt=$deletedAt, editedAt=$editedAt, id=$id, key=$key, mac=$mac, nonce=$nonce, peerId=$peerId, recipientOnline=$recipientOnline, senderId=$senderId, sentAt=$sentAt, seq=$seq]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -87,6 +92,11 @@ class ModelsPrivateMessage {
       json[r'deletedAt'] = this.deletedAt!.toUtc().toIso8601String();
     } else {
       json[r'deletedAt'] = null;
+    }
+    if (this.editedAt != null) {
+      json[r'editedAt'] = this.editedAt!.toUtc().toIso8601String();
+    } else {
+      json[r'editedAt'] = null;
     }
       json[r'id'] = this.id;
       json[r'key'] = this.key;
@@ -139,6 +149,7 @@ class ModelsPrivateMessage {
             ? (json[r'content'] as Iterable).cast<int>().toList(growable: false)
             : const [],
         deletedAt: mapDateTime(json, r'deletedAt', r''),
+        editedAt: mapDateTime(json, r'editedAt', r''),
         id: mapValueOfType<String>(json, r'id')!,
         key: json[r'key'] is Iterable
             ? (json[r'key'] as Iterable).cast<int>().toList(growable: false)

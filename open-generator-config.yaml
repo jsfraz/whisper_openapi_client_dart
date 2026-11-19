@@ -1,5 +1,5 @@
 pubName: whisper_openapi_client_dart
-pubVersion: 0.1.0
+pubVersion: 0.2.0
 pubDescription: "Whisper API client"
 pubHomepage: https://github.com/jsfraz/whisper_openapi_client_dart
 pubRepository: https://github.com/jsfraz/whisper_openapi_client_dart
