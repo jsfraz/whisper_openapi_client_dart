@@ -297,6 +297,89 @@
         }
       }
     },
+    "/api/chats/{peerId}/read": {
+      "put": {
+        "tags": [
+          "Chats"
+        ],
+        "summary": "Mark a conversation read",
+        "description": "Moves the caller's read cursor of a conversation and tells the other participant. Only the instant is stored: the server never learns which message was opened, and a client that keeps receipts off never calls this. Idempotent, and it never moves backwards.",
+        "operationId": "SetReadCursor",
+        "parameters": [
+          {
+            "name": "peerId",
+            "in": "path",
+            "description": "The other participant of the conversation",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The other participant of the conversation"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SetReadCursorInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {}
+                },
+                "example": {
+                  "error": "..."
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {}
+                },
+                "example": {
+                  "error": "..."
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {}
+                },
+                "example": {
+                  "error": "..."
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
     "/api/firebase/token": {
       "patch": {
         "tags": [
@@ -3077,6 +3160,19 @@
           "nonce"
         ]
       },
+      "SetReadCursorInput": {
+        "type": "object",
+        "properties": {
+          "readAt": {
+            "type": "string",
+            "description": "Instant up to which the chat was read",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "readAt"
+        ]
+      },
       "SetRetentionInput": {
         "type": "object",
         "properties": {
@@ -3104,6 +3200,10 @@
     {
       "name": "Authentication",
       "description": "User Authentication and registration."
+    },
+    {
+      "name": "Chats",
+      "description": "Shared state of a conversation."
     },
     {
       "name": "Firebase",

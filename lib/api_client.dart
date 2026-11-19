@@ -230,6 +230,8 @@ class ApiClient {
           return SetFirebaseTokenInput.fromJson(value);
         case 'SetReactionInput':
           return SetReactionInput.fromJson(value);
+        case 'SetReadCursorInput':
+          return SetReadCursorInput.fromJson(value);
         case 'SetRetentionInput':
           return SetRetentionInput.fromJson(value);
         default:

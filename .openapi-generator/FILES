@@ -2,6 +2,7 @@
 analysis_options.yaml
 doc/AuthUserInput.md
 doc/AuthenticationApi.md
+doc/ChatsApi.md
 doc/CreateInviteInput.md
 doc/CreateUserInput.md
 doc/DeleteUsersInput.md
@@ -29,12 +30,14 @@ doc/ModelsWsAuthResponse.md
 doc/RefreshUserAccessTokenInput.md
 doc/SetFirebaseTokenInput.md
 doc/SetReactionInput.md
+doc/SetReadCursorInput.md
 doc/SetRetentionInput.md
 doc/UserApi.md
 doc/VersionApi.md
 doc/WebSocketAuthenticationApi.md
 lib/api.dart
 lib/api/authentication_api.dart
+lib/api/chats_api.dart
 lib/api/firebase_api.dart
 lib/api/invite_api.dart
 lib/api/media_api.dart
@@ -74,5 +77,8 @@ lib/model/models_ws_auth_response.dart
 lib/model/refresh_user_access_token_input.dart
 lib/model/set_firebase_token_input.dart
 lib/model/set_reaction_input.dart
+lib/model/set_read_cursor_input.dart
 lib/model/set_retention_input.dart
 pubspec.yaml
+test/chats_api_test.dart
+test/set_read_cursor_input_test.dart
