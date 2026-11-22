@@ -20,6 +20,7 @@ class ModelsPrivateMessage {
     this.key = const [],
     this.mac = const [],
     this.nonce = const [],
+    this.openedAt,
     required this.peerId,
     required this.recipientOnline,
     required this.senderId,
@@ -41,6 +42,8 @@ class ModelsPrivateMessage {
 
   List<int> nonce;
 
+  DateTime? openedAt;
+
   String peerId;
 
   bool recipientOnline;
@@ -60,6 +63,7 @@ class ModelsPrivateMessage {
     _deepEquality.equals(other.key, key) &&
     _deepEquality.equals(other.mac, mac) &&
     _deepEquality.equals(other.nonce, nonce) &&
+    other.openedAt == openedAt &&
     other.peerId == peerId &&
     other.recipientOnline == recipientOnline &&
     other.senderId == senderId &&
@@ -76,6 +80,7 @@ class ModelsPrivateMessage {
     (key.hashCode) +
     (mac.hashCode) +
     (nonce.hashCode) +
+    (openedAt == null ? 0 : openedAt!.hashCode) +
     (peerId.hashCode) +
     (recipientOnline.hashCode) +
     (senderId.hashCode) +
@@ -83,7 +88,7 @@ class ModelsPrivateMessage {
     (seq.hashCode);
 
   @override
-  String toString() => 'ModelsPrivateMessage[content=$content, deletedAt=$deletedAt, editedAt=$editedAt, id=$id, key=$key, mac=$mac, nonce=$nonce, peerId=$peerId, recipientOnline=$recipientOnline, senderId=$senderId, sentAt=$sentAt, seq=$seq]';
+  String toString() => 'ModelsPrivateMessage[content=$content, deletedAt=$deletedAt, editedAt=$editedAt, id=$id, key=$key, mac=$mac, nonce=$nonce, openedAt=$openedAt, peerId=$peerId, recipientOnline=$recipientOnline, senderId=$senderId, sentAt=$sentAt, seq=$seq]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -102,6 +107,11 @@ class ModelsPrivateMessage {
       json[r'key'] = this.key;
       json[r'mac'] = this.mac;
       json[r'nonce'] = this.nonce;
+    if (this.openedAt != null) {
+      json[r'openedAt'] = this.openedAt!.toUtc().toIso8601String();
+    } else {
+      json[r'openedAt'] = null;
+    }
       json[r'peerId'] = this.peerId;
       json[r'recipientOnline'] = this.recipientOnline;
       json[r'senderId'] = this.senderId;
@@ -160,6 +170,7 @@ class ModelsPrivateMessage {
         nonce: json[r'nonce'] is Iterable
             ? (json[r'nonce'] as Iterable).cast<int>().toList(growable: false)
             : const [],
+        openedAt: mapDateTime(json, r'openedAt', r''),
         peerId: mapValueOfType<String>(json, r'peerId')!,
         recipientOnline: mapValueOfType<bool>(json, r'recipientOnline')!,
         senderId: mapValueOfType<String>(json, r'senderId')!,

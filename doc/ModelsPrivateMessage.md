@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **key** | **List<int>** |  | [default to const []]
 **mac** | **List<int>** |  | [default to const []]
 **nonce** | **List<int>** |  | [default to const []]
+**openedAt** | [**DateTime**](DateTime.md) |  | [optional] 
 **peerId** | **String** |  | 
 **recipientOnline** | **bool** |  | 
 **senderId** | **String** |  | 

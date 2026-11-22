@@ -80,5 +80,3 @@ lib/model/set_reaction_input.dart
 lib/model/set_read_cursor_input.dart
 lib/model/set_retention_input.dart
 pubspec.yaml
-test/chats_api_test.dart
-test/set_read_cursor_input_test.dart

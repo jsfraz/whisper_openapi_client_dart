@@ -14,6 +14,7 @@ Method | HTTP request | Description
 [**editMessage**](MessagesApi.md#editmessage) | **PATCH** /api/messages/{id} | Edit my message
 [**getHistory**](MessagesApi.md#gethistory) | **GET** /api/messages | Get message history
 [**hideMessage**](MessagesApi.md#hidemessage) | **POST** /api/messages/{id}/hide | Hide a message for me
+[**openMessage**](MessagesApi.md#openmessage) | **POST** /api/messages/{id}/open | Mark a view-once attachment opened
 [**pinMessage**](MessagesApi.md#pinmessage) | **PUT** /api/messages/{id}/pin | Pin a message
 [**removeReaction**](MessagesApi.md#removereaction) | **DELETE** /api/messages/{id}/reaction | Remove my reaction
 [**setReaction**](MessagesApi.md#setreaction) | **PUT** /api/messages/{id}/reaction | React to a message
@@ -247,6 +248,54 @@ try {
     api_instance.hideMessage(id);
 } catch (e) {
     print('Exception when calling MessagesApi->hideMessage: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**| The message id | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **openMessage**
+> openMessage(id)
+
+Mark a view-once attachment opened
+
+Records that the receiver opened a view-once attachment and tells both participants through sync and a live open frame, so the message stays in the conversation as a tombstone. The view-once flag itself lives inside the ciphertext, so this is a client-reported state. Only the receiver may call it. Idempotent.
+
+### Example
+```dart
+import 'package:whisper_openapi_client_dart/api.dart';
+// TODO Configure HTTP Bearer authorization: bearerAuth
+// Case 1. Use String Token
+//defaultApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
+// Case 2. Use Function which generate token.
+// String yourTokenGeneratorFunction() { ... }
+//defaultApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
+
+final api_instance = MessagesApi();
+final id = id_example; // String | The message id
+
+try {
+    api_instance.openMessage(id);
+} catch (e) {
+    print('Exception when calling MessagesApi->openMessage: $e\n');
 }
 ```
 

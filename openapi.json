@@ -1358,6 +1358,108 @@
         ]
       }
     },
+    "/api/messages/{id}/open": {
+      "post": {
+        "tags": [
+          "Messages"
+        ],
+        "summary": "Mark a view-once attachment opened",
+        "description": "Records that the receiver opened a view-once attachment and tells both participants through sync and a live open frame, so the message stays in the conversation as a tombstone. The view-once flag itself lives inside the ciphertext, so this is a client-reported state. Only the receiver may call it. Idempotent.",
+        "operationId": "OpenMessage",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The message id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The message id"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {}
+                },
+                "example": {
+                  "error": "..."
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {}
+                },
+                "example": {
+                  "error": "..."
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {}
+                },
+                "example": {
+                  "error": "..."
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {}
+                },
+                "example": {
+                  "error": "..."
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {}
+                },
+                "example": {
+                  "error": "..."
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
     "/api/messages/{id}/pin": {
       "put": {
         "tags": [
@@ -2964,6 +3066,11 @@
               "type": "integer",
               "format": "int32"
             }
+          },
+          "openedAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
           },
           "peerId": {
             "type": "string"

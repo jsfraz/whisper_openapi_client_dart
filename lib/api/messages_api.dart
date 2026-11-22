@@ -328,6 +328,57 @@ class MessagesApi {
     }
   }
 
+  /// Mark a view-once attachment opened
+  ///
+  /// Records that the receiver opened a view-once attachment and tells both participants through sync and a live open frame, so the message stays in the conversation as a tombstone. The view-once flag itself lives inside the ciphertext, so this is a client-reported state. Only the receiver may call it. Idempotent.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] id (required):
+  ///   The message id
+  Future<Response> openMessageWithHttpInfo(String id,) async {
+    // ignore: prefer_const_declarations
+    final path = r'/api/messages/{id}/open'
+      .replaceAll('{id}', id);
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>[];
+
+
+    return apiClient.invokeAPI(
+      path,
+      'POST',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Mark a view-once attachment opened
+  ///
+  /// Records that the receiver opened a view-once attachment and tells both participants through sync and a live open frame, so the message stays in the conversation as a tombstone. The view-once flag itself lives inside the ciphertext, so this is a client-reported state. Only the receiver may call it. Idempotent.
+  ///
+  /// Parameters:
+  ///
+  /// * [String] id (required):
+  ///   The message id
+  Future<void> openMessage(String id,) async {
+    final response = await openMessageWithHttpInfo(id,);
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+  }
+
   /// Pin a message
   ///
   /// Pins a message of the chat for both participants. Anyone in the conversation may pin. Idempotent.
