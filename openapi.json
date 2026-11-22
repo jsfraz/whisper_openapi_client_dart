@@ -700,6 +700,475 @@
         ]
       }
     },
+    "/api/media/uploads": {
+      "post": {
+        "tags": [
+          "Media"
+        ],
+        "summary": "Start a chunked upload",
+        "description": "Starts a resumable upload of an end-to-end encrypted media file bound to the receiver. Returns the upload id and the offset the server holds.",
+        "operationId": "CreateMediaUpload",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateMediaUploadInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The upload session, with the offset the server holds.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ModelsMediaUploadSessionResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {}
+                },
+                "example": {
+                  "error": "..."
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {}
+                },
+                "example": {
+                  "error": "..."
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "Request Entity Too Large",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {}
+                },
+                "example": {
+                  "error": "..."
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {}
+                },
+                "example": {
+                  "error": "..."
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {}
+                },
+                "example": {
+                  "error": "..."
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/api/media/uploads/{id}": {
+      "get": {
+        "tags": [
+          "Media"
+        ],
+        "summary": "Get chunked upload state",
+        "description": "Returns how much of the encrypted media file the server holds, so a client can resume a broken upload.",
+        "operationId": "GetMediaUpload",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The upload session, with the offset the server holds.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ModelsMediaUploadSessionResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {}
+                },
+                "example": {
+                  "error": "..."
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {}
+                },
+                "example": {
+                  "error": "..."
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {}
+                },
+                "example": {
+                  "error": "..."
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {}
+                },
+                "example": {
+                  "error": "..."
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "Media"
+        ],
+        "summary": "Upload one chunk",
+        "description": "Appends one chunk of the encrypted media file at the Upload-Offset header. A chunk at a different offset is refused with 409 and the offset the server holds.",
+        "operationId": "UploadMediaChunk",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Upload-Offset",
+            "in": "header",
+            "description": "Byte offset this chunk starts at; must equal the received count.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "chunk": {
+                    "type": "string",
+                    "description": "One slice of the encrypted media blob. Its field name must be chunk.",
+                    "format": "binary"
+                  }
+                },
+                "required": [
+                  "chunk"
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "The upload session, with the new offset.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ModelsMediaUploadSessionResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {}
+                },
+                "example": {
+                  "error": "..."
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {}
+                },
+                "example": {
+                  "error": "..."
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {}
+                },
+                "example": {
+                  "error": "..."
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {}
+                },
+                "example": {
+                  "error": "..."
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Offset Mismatch",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {}
+                },
+                "example": {
+                  "error": "..."
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "Request Entity Too Large",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {}
+                },
+                "example": {
+                  "error": "..."
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {}
+                },
+                "example": {
+                  "error": "..."
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/api/media/uploads/{id}/complete": {
+      "post": {
+        "tags": [
+          "Media"
+        ],
+        "summary": "Complete a chunked upload",
+        "description": "Turns a fully received chunked upload into a media file the receiver can download. Only the sender may complete it, and only once every byte is in.",
+        "operationId": "CompleteMediaUpload",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The media file is complete and downloadable.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ModelsMediaUploadResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {}
+                },
+                "example": {
+                  "error": "..."
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {}
+                },
+                "example": {
+                  "error": "..."
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {}
+                },
+                "example": {
+                  "error": "..."
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {}
+                },
+                "example": {
+                  "error": "..."
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {}
+                },
+                "example": {
+                  "error": "..."
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
     "/api/media/{id}": {
       "get": {
         "tags": [
@@ -2742,6 +3211,23 @@
           "mail"
         ]
       },
+      "CreateMediaUploadInput": {
+        "type": "object",
+        "properties": {
+          "receiverId": {
+            "type": "string"
+          },
+          "totalSize": {
+            "type": "integer",
+            "format": "int64",
+            "minimum": 1
+          }
+        },
+        "required": [
+          "receiverId",
+          "totalSize"
+        ]
+      },
       "CreateUserInput": {
         "type": "object",
         "properties": {
@@ -3001,6 +3487,29 @@
         },
         "required": [
           "id"
+        ]
+      },
+      "ModelsMediaUploadSessionResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "received": {
+            "type": "integer",
+            "description": "Bytes the server holds.",
+            "format": "int64"
+          },
+          "totalSize": {
+            "type": "integer",
+            "description": "Ciphertext length the client declared.",
+            "format": "int64"
+          }
+        },
+        "required": [
+          "id",
+          "received",
+          "totalSize"
         ]
       },
       "ModelsPinnedMessage": {

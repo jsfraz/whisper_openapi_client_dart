@@ -4,6 +4,7 @@ doc/AuthUserInput.md
 doc/AuthenticationApi.md
 doc/ChatsApi.md
 doc/CreateInviteInput.md
+doc/CreateMediaUploadInput.md
 doc/CreateUserInput.md
 doc/DeleteUsersInput.md
 doc/EditMessageInput.md
@@ -20,6 +21,7 @@ doc/ModelsEditMessageResponse.md
 doc/ModelsHistoryPage.md
 doc/ModelsInvite.md
 doc/ModelsMediaUploadResponse.md
+doc/ModelsMediaUploadSessionResponse.md
 doc/ModelsPinnedMessage.md
 doc/ModelsPrivateMessage.md
 doc/ModelsRefreshResponse.md
@@ -55,6 +57,7 @@ lib/auth/http_bearer_auth.dart
 lib/auth/oauth.dart
 lib/model/auth_user_input.dart
 lib/model/create_invite_input.dart
+lib/model/create_media_upload_input.dart
 lib/model/create_user_input.dart
 lib/model/delete_users_input.dart
 lib/model/edit_message_input.dart
@@ -67,6 +70,7 @@ lib/model/models_edit_message_response.dart
 lib/model/models_history_page.dart
 lib/model/models_invite.dart
 lib/model/models_media_upload_response.dart
+lib/model/models_media_upload_session_response.dart
 lib/model/models_pinned_message.dart
 lib/model/models_private_message.dart
 lib/model/models_refresh_response.dart
@@ -80,3 +84,5 @@ lib/model/set_reaction_input.dart
 lib/model/set_read_cursor_input.dart
 lib/model/set_retention_input.dart
 pubspec.yaml
+test/create_media_upload_input_test.dart
+test/models_media_upload_session_response_test.dart

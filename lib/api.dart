@@ -40,6 +40,7 @@ part 'api/web_socket_authentication_api.dart';
 
 part 'model/auth_user_input.dart';
 part 'model/create_invite_input.dart';
+part 'model/create_media_upload_input.dart';
 part 'model/create_user_input.dart';
 part 'model/delete_users_input.dart';
 part 'model/edit_message_input.dart';
@@ -52,6 +53,7 @@ part 'model/models_edit_message_response.dart';
 part 'model/models_history_page.dart';
 part 'model/models_invite.dart';
 part 'model/models_media_upload_response.dart';
+part 'model/models_media_upload_session_response.dart';
 part 'model/models_pinned_message.dart';
 part 'model/models_private_message.dart';
 part 'model/models_refresh_response.dart';

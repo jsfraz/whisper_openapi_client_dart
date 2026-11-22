@@ -186,6 +186,8 @@ class ApiClient {
           return AuthUserInput.fromJson(value);
         case 'CreateInviteInput':
           return CreateInviteInput.fromJson(value);
+        case 'CreateMediaUploadInput':
+          return CreateMediaUploadInput.fromJson(value);
         case 'CreateUserInput':
           return CreateUserInput.fromJson(value);
         case 'DeleteUsersInput':
@@ -210,6 +212,8 @@ class ApiClient {
           return ModelsInvite.fromJson(value);
         case 'ModelsMediaUploadResponse':
           return ModelsMediaUploadResponse.fromJson(value);
+        case 'ModelsMediaUploadSessionResponse':
+          return ModelsMediaUploadSessionResponse.fromJson(value);
         case 'ModelsPinnedMessage':
           return ModelsPinnedMessage.fromJson(value);
         case 'ModelsPrivateMessage':
