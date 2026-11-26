@@ -1,8 +1,8 @@
-# whisper_openapi_client_dart.api.AuthenticationApi
+# shept_openapi_client_dart.api.AuthenticationApi
 
 ## Load the API package
 ```dart
-import 'package:whisper_openapi_client_dart/api.dart';
+import 'package:shept_openapi_client_dart/api.dart';
 ```
 
 All URIs are relative to *http://localhost:8080*
@@ -24,7 +24,7 @@ Returns a one-time value the client embeds in the RSA-signed login JWT. Every ch
 
 ### Example
 ```dart
-import 'package:whisper_openapi_client_dart/api.dart';
+import 'package:shept_openapi_client_dart/api.dart';
 
 final api_instance = AuthenticationApi();
 
@@ -61,7 +61,7 @@ User auth
 
 ### Example
 ```dart
-import 'package:whisper_openapi_client_dart/api.dart';
+import 'package:shept_openapi_client_dart/api.dart';
 
 final api_instance = AuthenticationApi();
 final authUserInput = AuthUserInput(); // AuthUserInput | 
@@ -102,7 +102,7 @@ Register new user
 
 ### Example
 ```dart
-import 'package:whisper_openapi_client_dart/api.dart';
+import 'package:shept_openapi_client_dart/api.dart';
 
 final api_instance = AuthenticationApi();
 final createUserInput = CreateUserInput(); // CreateUserInput | 
@@ -143,7 +143,7 @@ Refresh access token.
 
 ### Example
 ```dart
-import 'package:whisper_openapi_client_dart/api.dart';
+import 'package:shept_openapi_client_dart/api.dart';
 
 final api_instance = AuthenticationApi();
 final refreshUserAccessTokenInput = RefreshUserAccessTokenInput(); // RefreshUserAccessTokenInput | 

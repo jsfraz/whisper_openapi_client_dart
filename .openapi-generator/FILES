@@ -84,5 +84,3 @@ lib/model/set_reaction_input.dart
 lib/model/set_read_cursor_input.dart
 lib/model/set_retention_input.dart
 pubspec.yaml
-test/create_media_upload_input_test.dart
-test/models_media_upload_session_response_test.dart

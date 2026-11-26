@@ -1,8 +1,8 @@
-# whisper_openapi_client_dart.api.MediaApi
+# shept_openapi_client_dart.api.MediaApi
 
 ## Load the API package
 ```dart
-import 'package:whisper_openapi_client_dart/api.dart';
+import 'package:shept_openapi_client_dart/api.dart';
 ```
 
 All URIs are relative to *http://localhost:8080*
@@ -27,7 +27,7 @@ Turns a fully received chunked upload into a media file the receiver can downloa
 
 ### Example
 ```dart
-import 'package:whisper_openapi_client_dart/api.dart';
+import 'package:shept_openapi_client_dart/api.dart';
 // TODO Configure HTTP Bearer authorization: bearerAuth
 // Case 1. Use String Token
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
@@ -76,7 +76,7 @@ Confirms the encrypted media file has been downloaded and deletes it from the se
 
 ### Example
 ```dart
-import 'package:whisper_openapi_client_dart/api.dart';
+import 'package:shept_openapi_client_dart/api.dart';
 // TODO Configure HTTP Bearer authorization: bearerAuth
 // Case 1. Use String Token
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
@@ -124,7 +124,7 @@ Starts a resumable upload of an end-to-end encrypted media file bound to the rec
 
 ### Example
 ```dart
-import 'package:whisper_openapi_client_dart/api.dart';
+import 'package:shept_openapi_client_dart/api.dart';
 // TODO Configure HTTP Bearer authorization: bearerAuth
 // Case 1. Use String Token
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
@@ -173,7 +173,7 @@ Downloads the encrypted media file. Only the intended receiver may download it. 
 
 ### Example
 ```dart
-import 'package:whisper_openapi_client_dart/api.dart';
+import 'package:shept_openapi_client_dart/api.dart';
 // TODO Configure HTTP Bearer authorization: bearerAuth
 // Case 1. Use String Token
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
@@ -222,7 +222,7 @@ Returns how much of the encrypted media file the server holds, so a client can r
 
 ### Example
 ```dart
-import 'package:whisper_openapi_client_dart/api.dart';
+import 'package:shept_openapi_client_dart/api.dart';
 // TODO Configure HTTP Bearer authorization: bearerAuth
 // Case 1. Use String Token
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
@@ -271,7 +271,7 @@ Uploads an end-to-end encrypted media file bound to the receiver. The server sto
 
 ### Example
 ```dart
-import 'package:whisper_openapi_client_dart/api.dart';
+import 'package:shept_openapi_client_dart/api.dart';
 // TODO Configure HTTP Bearer authorization: bearerAuth
 // Case 1. Use String Token
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
@@ -322,7 +322,7 @@ Appends one chunk of the encrypted media file at the Upload-Offset header. A chu
 
 ### Example
 ```dart
-import 'package:whisper_openapi_client_dart/api.dart';
+import 'package:shept_openapi_client_dart/api.dart';
 // TODO Configure HTTP Bearer authorization: bearerAuth
 // Case 1. Use String Token
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');

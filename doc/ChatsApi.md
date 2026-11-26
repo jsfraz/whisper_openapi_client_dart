@@ -1,8 +1,8 @@
-# whisper_openapi_client_dart.api.ChatsApi
+# shept_openapi_client_dart.api.ChatsApi
 
 ## Load the API package
 ```dart
-import 'package:whisper_openapi_client_dart/api.dart';
+import 'package:shept_openapi_client_dart/api.dart';
 ```
 
 All URIs are relative to *http://localhost:8080*
@@ -21,7 +21,7 @@ Moves the caller's read cursor of a conversation and tells the other participant
 
 ### Example
 ```dart
-import 'package:whisper_openapi_client_dart/api.dart';
+import 'package:shept_openapi_client_dart/api.dart';
 // TODO Configure HTTP Bearer authorization: bearerAuth
 // Case 1. Use String Token
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');

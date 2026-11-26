@@ -1,7 +1,7 @@
-# whisper_openapi_client_dart — agent contract
+# shept_openapi_client_dart — agent contract
 
-Generated Dart client for the Whisper API. `lib/` and `doc/` **are generated** — hand editing is forbidden.
-The source of truth is `openapi.json` in `whisper-server` (generated from routes via `go run ./cmd/spec`).
+Generated Dart client for the Shept API. `lib/` and `doc/` **are generated** — hand editing is forbidden.
+The source of truth is `openapi.json` in `shept-server` (generated from routes via `go run ./cmd/spec`).
 
 ## Commands
 

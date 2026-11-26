@@ -1,8 +1,8 @@
-# whisper_openapi_client_dart.model.ModelsEditMessageResponse
+# shept_openapi_client_dart.model.ModelsEditMessageResponse
 
 ## Load the model package
 ```dart
-import 'package:whisper_openapi_client_dart/api.dart';
+import 'package:shept_openapi_client_dart/api.dart';
 ```
 
 ## Properties

@@ -1,8 +1,8 @@
-# whisper_openapi_client_dart.api.VersionApi
+# shept_openapi_client_dart.api.VersionApi
 
 ## Load the API package
 ```dart
-import 'package:whisper_openapi_client_dart/api.dart';
+import 'package:shept_openapi_client_dart/api.dart';
 ```
 
 All URIs are relative to *http://localhost:8080*
@@ -21,7 +21,7 @@ Returns the server build, the API version and the oldest client it accepts.
 
 ### Example
 ```dart
-import 'package:whisper_openapi_client_dart/api.dart';
+import 'package:shept_openapi_client_dart/api.dart';
 
 final api_instance = VersionApi();
 

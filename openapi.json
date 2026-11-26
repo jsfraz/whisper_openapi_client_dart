@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.1",
   "info": {
-    "title": "Whisper server",
+    "title": "Shept server",
     "description": "Secure private self-hosted end-to-end encryption messaging server.",
     "contact": {
       "name": "Josef Ráž",
@@ -3688,7 +3688,7 @@
           },
           "name": {
             "type": "string",
-            "example": "whisper-server"
+            "example": "shept-server"
           },
           "version": {
             "type": "string",

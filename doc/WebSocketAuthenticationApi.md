@@ -1,8 +1,8 @@
-# whisper_openapi_client_dart.api.WebSocketAuthenticationApi
+# shept_openapi_client_dart.api.WebSocketAuthenticationApi
 
 ## Load the API package
 ```dart
-import 'package:whisper_openapi_client_dart/api.dart';
+import 'package:shept_openapi_client_dart/api.dart';
 ```
 
 All URIs are relative to *http://localhost:8080*
@@ -19,7 +19,7 @@ WebSocket auth
 
 ### Example
 ```dart
-import 'package:whisper_openapi_client_dart/api.dart';
+import 'package:shept_openapi_client_dart/api.dart';
 
 final api_instance = WebSocketAuthenticationApi();
 
