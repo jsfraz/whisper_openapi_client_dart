@@ -10,36 +10,36 @@
 
 part of openapi.api;
 
-class MediaUploadResponse {
-  /// Returns a new [MediaUploadResponse] instance.
-  MediaUploadResponse({
-    required this.id,
+class SetRetentionInput {
+  /// Returns a new [SetRetentionInput] instance.
+  SetRetentionInput({
+    required this.days,
   });
 
-  String id;
+  int days;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MediaUploadResponse &&
-    other.id == id;
+  bool operator ==(Object other) => identical(this, other) || other is SetRetentionInput &&
+    other.days == days;
 
   @override
   int get hashCode =>
     // ignore: unnecessary_parenthesis
-    (id.hashCode);
+    (days.hashCode);
 
   @override
-  String toString() => 'MediaUploadResponse[id=$id]';
+  String toString() => 'SetRetentionInput[days=$days]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'id'] = this.id;
+      json[r'days'] = this.days;
     return json;
   }
 
-  /// Returns a new [MediaUploadResponse] instance and imports its values from
+  /// Returns a new [SetRetentionInput] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MediaUploadResponse? fromJson(dynamic value) {
+  static SetRetentionInput? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -47,25 +47,23 @@ class MediaUploadResponse {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MediaUploadResponse[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MediaUploadResponse[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'days'), 'Required key "SetRetentionInput[days]" is missing from JSON.');
+        assert(json[r'days'] != null, 'Required key "SetRetentionInput[days]" has a null value in JSON.');
         return true;
       }());
 
-      return MediaUploadResponse(
-        id: mapValueOfType<String>(json, r'id')!,
+      return SetRetentionInput(
+        days: mapValueOfType<int>(json, r'days')!,
       );
     }
     return null;
   }
 
-  static List<MediaUploadResponse> listFromJson(dynamic json, {bool growable = false,}) {
-    final result = <MediaUploadResponse>[];
+  static List<SetRetentionInput> listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <SetRetentionInput>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MediaUploadResponse.fromJson(row);
+        final value = SetRetentionInput.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -74,12 +72,12 @@ class MediaUploadResponse {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MediaUploadResponse> mapFromJson(dynamic json) {
-    final map = <String, MediaUploadResponse>{};
+  static Map<String, SetRetentionInput> mapFromJson(dynamic json) {
+    final map = <String, SetRetentionInput>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MediaUploadResponse.fromJson(entry.value);
+        final value = SetRetentionInput.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -88,14 +86,14 @@ class MediaUploadResponse {
     return map;
   }
 
-  // maps a json object with a list of MediaUploadResponse-objects as value to a dart map
-  static Map<String, List<MediaUploadResponse>> mapListFromJson(dynamic json, {bool growable = false,}) {
-    final map = <String, List<MediaUploadResponse>>{};
+  // maps a json object with a list of SetRetentionInput-objects as value to a dart map
+  static Map<String, List<SetRetentionInput>> mapListFromJson(dynamic json, {bool growable = false,}) {
+    final map = <String, List<SetRetentionInput>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = MediaUploadResponse.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = SetRetentionInput.listFromJson(entry.value, growable: growable,);
       }
     }
     return map;
@@ -103,6 +101,7 @@ class MediaUploadResponse {
 
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
-    'id',
+    'days',
   };
 }
+

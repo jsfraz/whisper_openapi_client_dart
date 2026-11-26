@@ -8,21 +8,21 @@
 // ignore_for_file: constant_identifier_names
 // ignore_for_file: lines_longer_than_80_chars
 
-import 'package:whisper_openapi_client_dart/api.dart';
+import 'package:shept_openapi_client_dart/api.dart';
 import 'package:test/test.dart';
 
-// tests for UploadMediaInput
+// tests for CreateMediaUploadInput
 void main() {
-  // final instance = UploadMediaInput();
+  // final instance = CreateMediaUploadInput();
 
-  group('test UploadMediaInput', () {
-    // MultipartFileHeader file
-    test('to test the property `file`', () async {
+  group('test CreateMediaUploadInput', () {
+    // String receiverId
+    test('to test the property `receiverId`', () async {
       // TODO
     });
 
-    // int receiverId
-    test('to test the property `receiverId`', () async {
+    // int totalSize
+    test('to test the property `totalSize`', () async {
       // TODO
     });
 

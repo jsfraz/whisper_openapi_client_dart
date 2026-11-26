@@ -1,18 +1,58 @@
-# whisper_openapi_client_dart.api.AuthenticationApi
+# shept_openapi_client_dart.api.AuthenticationApi
 
 ## Load the API package
 ```dart
-import 'package:whisper_openapi_client_dart/api.dart';
+import 'package:shept_openapi_client_dart/api.dart';
 ```
 
 All URIs are relative to *http://localhost:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**authChallenge**](AuthenticationApi.md#authchallenge) | **GET** /api/auth/challenge | Get a login challenge
 [**authUser**](AuthenticationApi.md#authuser) | **POST** /api/auth | User auth
 [**createUser**](AuthenticationApi.md#createuser) | **POST** /api/auth/register | Register new user
 [**refreshUserAccessToken**](AuthenticationApi.md#refreshuseraccesstoken) | **POST** /api/auth/refresh | Refresh access token.
 
+
+# **authChallenge**
+> ModelsAuthChallengeResponse authChallenge()
+
+Get a login challenge
+
+Returns a one-time value the client embeds in the RSA-signed login JWT. Every challenge is accepted once.
+
+### Example
+```dart
+import 'package:shept_openapi_client_dart/api.dart';
+
+final api_instance = AuthenticationApi();
+
+try {
+    final result = api_instance.authChallenge();
+    print(result);
+} catch (e) {
+    print('Exception when calling AuthenticationApi->authChallenge: $e\n');
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**ModelsAuthChallengeResponse**](ModelsAuthChallengeResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **authUser**
 > ModelsAuthResponse authUser(authUserInput)
@@ -21,7 +61,7 @@ User auth
 
 ### Example
 ```dart
-import 'package:whisper_openapi_client_dart/api.dart';
+import 'package:shept_openapi_client_dart/api.dart';
 
 final api_instance = AuthenticationApi();
 final authUserInput = AuthUserInput(); // AuthUserInput | 
@@ -62,7 +102,7 @@ Register new user
 
 ### Example
 ```dart
-import 'package:whisper_openapi_client_dart/api.dart';
+import 'package:shept_openapi_client_dart/api.dart';
 
 final api_instance = AuthenticationApi();
 final createUserInput = CreateUserInput(); // CreateUserInput | 
@@ -103,7 +143,7 @@ Refresh access token.
 
 ### Example
 ```dart
-import 'package:whisper_openapi_client_dart/api.dart';
+import 'package:shept_openapi_client_dart/api.dart';
 
 final api_instance = AuthenticationApi();
 final refreshUserAccessTokenInput = RefreshUserAccessTokenInput(); // RefreshUserAccessTokenInput | 

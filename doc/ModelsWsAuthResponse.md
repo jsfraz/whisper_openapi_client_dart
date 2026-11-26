@@ -1,8 +1,8 @@
-# whisper_openapi_client_dart.model.ModelsWsAuthResponse
+# shept_openapi_client_dart.model.ModelsWsAuthResponse
 
 ## Load the model package
 ```dart
-import 'package:whisper_openapi_client_dart/api.dart';
+import 'package:shept_openapi_client_dart/api.dart';
 ```
 
 ## Properties

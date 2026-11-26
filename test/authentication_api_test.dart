@@ -8,7 +8,7 @@
 // ignore_for_file: constant_identifier_names
 // ignore_for_file: lines_longer_than_80_chars
 
-import 'package:whisper_openapi_client_dart/api.dart';
+import 'package:shept_openapi_client_dart/api.dart';
 import 'package:test/test.dart';
 
 
@@ -17,6 +17,15 @@ void main() {
   // final instance = AuthenticationApi();
 
   group('tests for AuthenticationApi', () {
+    // Get a login challenge
+    //
+    // Returns a one-time value the client embeds in the RSA-signed login JWT. Every challenge is accepted once.
+    //
+    //Future<ModelsAuthChallengeResponse> authChallenge() async
+    test('test authChallenge', () async {
+      // TODO
+    });
+
     // User auth
     //
     //Future<ModelsAuthResponse> authUser({ AuthUserInput authUserInput }) async

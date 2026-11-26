@@ -29,26 +29,43 @@ part 'auth/http_basic_auth.dart';
 part 'auth/http_bearer_auth.dart';
 
 part 'api/authentication_api.dart';
+part 'api/chats_api.dart';
 part 'api/firebase_api.dart';
 part 'api/invite_api.dart';
 part 'api/media_api.dart';
+part 'api/messages_api.dart';
 part 'api/user_api.dart';
+part 'api/version_api.dart';
 part 'api/web_socket_authentication_api.dart';
 
 part 'model/auth_user_input.dart';
 part 'model/create_invite_input.dart';
+part 'model/create_media_upload_input.dart';
 part 'model/create_user_input.dart';
 part 'model/delete_users_input.dart';
+part 'model/edit_message_input.dart';
+part 'model/models_auth_challenge_response.dart';
 part 'model/models_auth_response.dart';
+part 'model/models_clear_conversation_response.dart';
+part 'model/models_device.dart';
+part 'model/models_devices_response.dart';
+part 'model/models_edit_message_response.dart';
+part 'model/models_history_page.dart';
 part 'model/models_invite.dart';
 part 'model/models_media_upload_response.dart';
+part 'model/models_media_upload_session_response.dart';
+part 'model/models_pinned_message.dart';
+part 'model/models_private_message.dart';
 part 'model/models_refresh_response.dart';
+part 'model/models_retention_response.dart';
 part 'model/models_user.dart';
+part 'model/models_version_response.dart';
 part 'model/models_ws_auth_response.dart';
-part 'model/multipart_file_header.dart';
 part 'model/refresh_user_access_token_input.dart';
 part 'model/set_firebase_token_input.dart';
-part 'model/upload_media_input.dart';
+part 'model/set_reaction_input.dart';
+part 'model/set_read_cursor_input.dart';
+part 'model/set_retention_input.dart';
 
 
 /// An [ApiClient] instance that uses the default values obtained from

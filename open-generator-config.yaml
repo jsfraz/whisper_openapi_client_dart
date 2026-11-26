@@ -1,3 +1,5 @@
-pubName: whisper_openapi_client_dart
-pubVersion: 0.0.1
-pubDescription: "Whisper API client"
+pubName: shept_openapi_client_dart
+pubVersion: 0.5.0
+pubDescription: "Shept API client"
+pubHomepage: https://github.com/jsfraz/shept_openapi_client_dart
+pubRepository: https://github.com/jsfraz/shept_openapi_client_dart

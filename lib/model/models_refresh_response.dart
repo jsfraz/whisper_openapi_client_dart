@@ -14,25 +14,31 @@ class ModelsRefreshResponse {
   /// Returns a new [ModelsRefreshResponse] instance.
   ModelsRefreshResponse({
     required this.accessToken,
+    required this.refreshToken,
   });
 
   String accessToken;
 
+  String refreshToken;
+
   @override
   bool operator ==(Object other) => identical(this, other) || other is ModelsRefreshResponse &&
-    other.accessToken == accessToken;
+    other.accessToken == accessToken &&
+    other.refreshToken == refreshToken;
 
   @override
   int get hashCode =>
     // ignore: unnecessary_parenthesis
-    (accessToken.hashCode);
+    (accessToken.hashCode) +
+    (refreshToken.hashCode);
 
   @override
-  String toString() => 'ModelsRefreshResponse[accessToken=$accessToken]';
+  String toString() => 'ModelsRefreshResponse[accessToken=$accessToken, refreshToken=$refreshToken]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
       json[r'accessToken'] = this.accessToken;
+      json[r'refreshToken'] = this.refreshToken;
     return json;
   }
 
@@ -49,11 +55,14 @@ class ModelsRefreshResponse {
       assert(() {
         assert(json.containsKey(r'accessToken'), 'Required key "ModelsRefreshResponse[accessToken]" is missing from JSON.');
         assert(json[r'accessToken'] != null, 'Required key "ModelsRefreshResponse[accessToken]" has a null value in JSON.');
+        assert(json.containsKey(r'refreshToken'), 'Required key "ModelsRefreshResponse[refreshToken]" is missing from JSON.');
+        assert(json[r'refreshToken'] != null, 'Required key "ModelsRefreshResponse[refreshToken]" has a null value in JSON.');
         return true;
       }());
 
       return ModelsRefreshResponse(
         accessToken: mapValueOfType<String>(json, r'accessToken')!,
+        refreshToken: mapValueOfType<String>(json, r'refreshToken')!,
       );
     }
     return null;
@@ -102,6 +111,7 @@ class ModelsRefreshResponse {
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
     'accessToken',
+    'refreshToken',
   };
 }
 

@@ -8,7 +8,7 @@
 // ignore_for_file: constant_identifier_names
 // ignore_for_file: lines_longer_than_80_chars
 
-import 'package:whisper_openapi_client_dart/api.dart';
+import 'package:shept_openapi_client_dart/api.dart';
 import 'package:test/test.dart';
 
 
@@ -17,6 +17,13 @@ void main() {
   // final instance = UserApi();
 
   group('tests for UserApi', () {
+    // Delete my account
+    //
+    //Future deleteMe() async
+    test('test deleteMe', () async {
+      // TODO
+    });
+
     // Delete users
     //
     //Future deleteUsers({ DeleteUsersInput deleteUsersInput }) async
@@ -33,7 +40,7 @@ void main() {
 
     // Get user by ID
     //
-    //Future<ModelsUser> getUserById(int id) async
+    //Future<ModelsUser> getUserById(String id) async
     test('test getUserById', () async {
       // TODO
     });

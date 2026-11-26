@@ -8,7 +8,7 @@
 // ignore_for_file: constant_identifier_names
 // ignore_for_file: lines_longer_than_80_chars
 
-import 'package:whisper_openapi_client_dart/api.dart';
+import 'package:shept_openapi_client_dart/api.dart';
 import 'package:test/test.dart';
 
 
@@ -26,11 +26,20 @@ void main() {
       // TODO
     });
 
+    // Download encrypted media file by id
+    //
+    // Downloads the encrypted media file. Only the intended receiver may download it. The file is retained until the client confirms the download or its TTL expires.
+    //
+    //Future<MultipartFile> downloadMedia(String id) async
+    test('test downloadMedia', () async {
+      // TODO
+    });
+
     // Upload encrypted media file
     //
-    // Uploads an end-to-end encrypted media file bound to the receiver. Returns the media id.
+    // Uploads an end-to-end encrypted media file bound to the receiver. The server stores only the ciphertext. Returns the media id.
     //
-    //Future<ModelsMediaUploadResponse> uploadMedia({ UploadMediaInput uploadMediaInput }) async
+    //Future<ModelsMediaUploadResponse> uploadMedia(MultipartFile file, String receiverId) async
     test('test uploadMedia', () async {
       // TODO
     });

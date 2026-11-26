@@ -8,7 +8,7 @@
 // ignore_for_file: constant_identifier_names
 // ignore_for_file: lines_longer_than_80_chars
 
-import 'package:whisper_openapi_client_dart/api.dart';
+import 'package:shept_openapi_client_dart/api.dart';
 import 'package:test/test.dart';
 
 // tests for AuthUserInput
@@ -16,8 +16,8 @@ void main() {
   // final instance = AuthUserInput();
 
   group('test AuthUserInput', () {
-    // String jwtToken
-    test('to test the property `jwtToken`', () async {
+    // String token
+    test('to test the property `token`', () async {
       // TODO
     });
 

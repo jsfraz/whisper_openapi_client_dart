@@ -74,7 +74,7 @@ class ApiClient {
           cancelOnError: true,
         );
         final response = await _client.send(request);
-        return Response.fromStream(response);
+        return await Response.fromStream(response);
       }
 
       if (body is MultipartRequest) {
@@ -84,7 +84,7 @@ class ApiClient {
         request.headers.addAll(body.headers);
         request.headers.addAll(headerParams);
         final response = await _client.send(request);
-        return Response.fromStream(response);
+        return await Response.fromStream(response);
       }
 
       final msgBody = contentType == 'application/x-www-form-urlencoded'
@@ -186,30 +186,58 @@ class ApiClient {
           return AuthUserInput.fromJson(value);
         case 'CreateInviteInput':
           return CreateInviteInput.fromJson(value);
+        case 'CreateMediaUploadInput':
+          return CreateMediaUploadInput.fromJson(value);
         case 'CreateUserInput':
           return CreateUserInput.fromJson(value);
         case 'DeleteUsersInput':
           return DeleteUsersInput.fromJson(value);
+        case 'EditMessageInput':
+          return EditMessageInput.fromJson(value);
+        case 'ModelsAuthChallengeResponse':
+          return ModelsAuthChallengeResponse.fromJson(value);
         case 'ModelsAuthResponse':
           return ModelsAuthResponse.fromJson(value);
+        case 'ModelsClearConversationResponse':
+          return ModelsClearConversationResponse.fromJson(value);
+        case 'ModelsDevice':
+          return ModelsDevice.fromJson(value);
+        case 'ModelsDevicesResponse':
+          return ModelsDevicesResponse.fromJson(value);
+        case 'ModelsEditMessageResponse':
+          return ModelsEditMessageResponse.fromJson(value);
+        case 'ModelsHistoryPage':
+          return ModelsHistoryPage.fromJson(value);
         case 'ModelsInvite':
           return ModelsInvite.fromJson(value);
         case 'ModelsMediaUploadResponse':
           return ModelsMediaUploadResponse.fromJson(value);
+        case 'ModelsMediaUploadSessionResponse':
+          return ModelsMediaUploadSessionResponse.fromJson(value);
+        case 'ModelsPinnedMessage':
+          return ModelsPinnedMessage.fromJson(value);
+        case 'ModelsPrivateMessage':
+          return ModelsPrivateMessage.fromJson(value);
         case 'ModelsRefreshResponse':
           return ModelsRefreshResponse.fromJson(value);
+        case 'ModelsRetentionResponse':
+          return ModelsRetentionResponse.fromJson(value);
         case 'ModelsUser':
           return ModelsUser.fromJson(value);
+        case 'ModelsVersionResponse':
+          return ModelsVersionResponse.fromJson(value);
         case 'ModelsWsAuthResponse':
           return ModelsWsAuthResponse.fromJson(value);
-        case 'MultipartFileHeader':
-          return MultipartFileHeader.fromJson(value);
         case 'RefreshUserAccessTokenInput':
           return RefreshUserAccessTokenInput.fromJson(value);
         case 'SetFirebaseTokenInput':
           return SetFirebaseTokenInput.fromJson(value);
-        case 'UploadMediaInput':
-          return UploadMediaInput.fromJson(value);
+        case 'SetReactionInput':
+          return SetReactionInput.fromJson(value);
+        case 'SetReadCursorInput':
+          return SetReadCursorInput.fromJson(value);
+        case 'SetRetentionInput':
+          return SetRetentionInput.fromJson(value);
         default:
           dynamic match;
           if (value is List && (match = _regList.firstMatch(targetType)?.group(1)) != null) {

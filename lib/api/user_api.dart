@@ -143,14 +143,110 @@ class UserApi {
     return null;
   }
 
+  /// Get devices
+  ///
+  /// Lists the devices signed into the account. The requesting device is flagged.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  Future<Response> getDevicesWithHttpInfo() async {
+    // ignore: prefer_const_declarations
+    final path = r'/api/user/devices';
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>[];
+
+
+    return apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Get devices
+  ///
+  /// Lists the devices signed into the account. The requesting device is flagged.
+  Future<ModelsDevicesResponse?> getDevices() async {
+    final response = await getDevicesWithHttpInfo();
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'ModelsDevicesResponse',) as ModelsDevicesResponse;
+    
+    }
+    return null;
+  }
+
+  /// Get archive retention
+  ///
+  /// Returns how long the server keeps the ciphertext archive of this account.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  Future<Response> getRetentionWithHttpInfo() async {
+    // ignore: prefer_const_declarations
+    final path = r'/api/user/retention';
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>[];
+
+
+    return apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Get archive retention
+  ///
+  /// Returns how long the server keeps the ciphertext archive of this account.
+  Future<ModelsRetentionResponse?> getRetention() async {
+    final response = await getRetentionWithHttpInfo();
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'ModelsRetentionResponse',) as ModelsRetentionResponse;
+    
+    }
+    return null;
+  }
+
   /// Get user by ID
   ///
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
   ///
-  /// * [int] id (required):
-  Future<Response> getUserByIdWithHttpInfo(int id,) async {
+  /// * [String] id (required):
+  Future<Response> getUserByIdWithHttpInfo(String id,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/user';
 
@@ -181,8 +277,8 @@ class UserApi {
   ///
   /// Parameters:
   ///
-  /// * [int] id (required):
-  Future<ModelsUser?> getUserById(int id,) async {
+  /// * [String] id (required):
+  Future<ModelsUser?> getUserById(String id,) async {
     final response = await getUserByIdWithHttpInfo(id,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -195,6 +291,55 @@ class UserApi {
     
     }
     return null;
+  }
+
+  /// Revoke a device
+  ///
+  /// Locks a device out immediately: it cannot log in, renew its token, call the API or keep its WebSocket.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] id (required):
+  Future<Response> revokeDeviceWithHttpInfo(String id,) async {
+    // ignore: prefer_const_declarations
+    final path = r'/api/user/devices/{id}/revoke'
+      .replaceAll('{id}', id);
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>[];
+
+
+    return apiClient.invokeAPI(
+      path,
+      'POST',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Revoke a device
+  ///
+  /// Locks a device out immediately: it cannot log in, renew its token, call the API or keep its WebSocket.
+  ///
+  /// Parameters:
+  ///
+  /// * [String] id (required):
+  Future<void> revokeDevice(String id,) async {
+    final response = await revokeDeviceWithHttpInfo(id,);
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
   }
 
   /// Search users
@@ -252,5 +397,102 @@ class UserApi {
 
     }
     return null;
+  }
+
+  /// Set archive retention
+  ///
+  /// The shorter retention of both participants wins, because both accounts can read a message.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [SetRetentionInput] setRetentionInput:
+  Future<Response> setRetentionWithHttpInfo({ SetRetentionInput? setRetentionInput, }) async {
+    // ignore: prefer_const_declarations
+    final path = r'/api/user/retention';
+
+    // ignore: prefer_final_locals
+    Object? postBody = setRetentionInput;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>['application/json'];
+
+
+    return apiClient.invokeAPI(
+      path,
+      'PUT',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Set archive retention
+  ///
+  /// The shorter retention of both participants wins, because both accounts can read a message.
+  ///
+  /// Parameters:
+  ///
+  /// * [SetRetentionInput] setRetentionInput:
+  Future<void> setRetention({ SetRetentionInput? setRetentionInput, }) async {
+    final response = await setRetentionWithHttpInfo( setRetentionInput: setRetentionInput, );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+  }
+
+  /// Unrevoke a device
+  ///
+  /// Lets a revoked device sign in again. Only a live device of the same account may do this.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] id (required):
+  Future<Response> unrevokeDeviceWithHttpInfo(String id,) async {
+    // ignore: prefer_const_declarations
+    final path = r'/api/user/devices/{id}/unrevoke'
+      .replaceAll('{id}', id);
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>[];
+
+
+    return apiClient.invokeAPI(
+      path,
+      'POST',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Unrevoke a device
+  ///
+  /// Lets a revoked device sign in again. Only a live device of the same account may do this.
+  ///
+  /// Parameters:
+  ///
+  /// * [String] id (required):
+  Future<void> unrevokeDevice(String id,) async {
+    final response = await unrevokeDeviceWithHttpInfo(id,);
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
   }
 }

@@ -8,7 +8,7 @@
 // ignore_for_file: constant_identifier_names
 // ignore_for_file: lines_longer_than_80_chars
 
-import 'package:whisper_openapi_client_dart/api.dart';
+import 'package:shept_openapi_client_dart/api.dart';
 import 'package:test/test.dart';
 
 // tests for ModelsRefreshResponse
@@ -18,6 +18,11 @@ void main() {
   group('test ModelsRefreshResponse', () {
     // String accessToken
     test('to test the property `accessToken`', () async {
+      // TODO
+    });
+
+    // String refreshToken
+    test('to test the property `refreshToken`', () async {
       // TODO
     });
 
