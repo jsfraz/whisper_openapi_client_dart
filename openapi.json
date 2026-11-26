@@ -3,12 +3,7 @@
   "info": {
     "title": "Shept server",
     "description": "Secure private self-hosted end-to-end encryption messaging server.",
-    "contact": {
-      "name": "Josef Ráž",
-      "url": "https://josefraz.cz",
-      "email": "razj@josefraz.cz"
-    },
-    "version": "1.0.0"
+    "version": "0.5.0"
   },
   "servers": [
     {
